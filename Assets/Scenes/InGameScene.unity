@@ -171,17 +171,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 899943872359650150, guid: 18f14d04c2ad1c24fa6576961c612c77, type: 3}
-      propertyPath: _isDebug
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 899943872359650150, guid: 18f14d04c2ad1c24fa6576961c612c77, type: 3}
-      propertyPath: _playerAddressInDebug
-      value: Assets/Prefabs/GhostPlayer/LittleGhost_LP (1).prefab
-      objectReference: {fileID: 0}
     - target: {fileID: 1254364070492840223, guid: 18f14d04c2ad1c24fa6576961c612c77, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2640228217912006543, guid: 18f14d04c2ad1c24fa6576961c612c77, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -418,7 +414,7 @@ GameObject:
   - component: {fileID: 284663426}
   - component: {fileID: 284663425}
   - component: {fileID: 284663424}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +431,7 @@ TerrainCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
