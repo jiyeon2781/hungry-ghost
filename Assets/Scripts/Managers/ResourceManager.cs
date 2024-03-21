@@ -10,11 +10,12 @@ public class ResourceManager {
     // Address, Object∏¶ ¿˙¿Â
     public ResourceManager() { _resources.Clear(); _resources = new Dictionary<string, GameObject>(); }
 
-    private AsyncOperationHandle<GameObject> _handle;
     private GameObject _object;
 
     public void LoadAsync(string address, bool isCaching, Action<GameObject> onSuccess, Action onFailed)
     {
+        AsyncOperationHandle<GameObject> _handle;
+
         if (isCaching)
         {
             _resources.TryGetValue(address, out _object);
@@ -35,6 +36,8 @@ public class ResourceManager {
                 onFailed?.Invoke();
         };
     }
+
+
 
     public void Unload(GameObject obj)
     {

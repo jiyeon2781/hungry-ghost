@@ -1151,6 +1151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerAddress: Assets/Prefabs/GhostPlayer/Player.prefab
+  _itemAddress: Assets/Prefabs/Item/Food.prefab
   _playerStartPosition: {fileID: 225103203}
 --- !u!1 &1257459177
 GameObject:
