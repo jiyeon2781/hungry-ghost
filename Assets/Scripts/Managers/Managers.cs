@@ -13,6 +13,7 @@ public class Managers : MonoBehaviour
     private InputManager _input = new InputManager();
     private CameraManager _camera = new CameraManager();
     private PoolManager _pool = new PoolManager();
+    private DataManager _data = new DataManager();
 
     static Managers Instance {
         get
@@ -28,6 +29,7 @@ public class Managers : MonoBehaviour
     public static InputManager InputManager { get { return Instance._input; } }
     public static CameraManager CameraManager { get { return Instance._camera; } }
     public static PoolManager PoolManager { get { return Instance._pool; } }
+    public static DataManager DataManager { get { return Instance._data; } }
 
     private void Start()
     {

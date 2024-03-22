@@ -8,5 +8,6 @@ public class StartScene : BaseScene
     {
         SceneType = Enums.Scene.Start;
         // TODO Init 
+        Managers.DataManager.Init();
     }
 }
