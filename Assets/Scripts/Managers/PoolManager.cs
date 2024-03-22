@@ -32,6 +32,7 @@ public class PoolManager
         if (food == null) return;
 
         food.transform.parent = RootTransform;
+        food.transform.localPosition = Vector3.zero;
         food.gameObject.SetActive(false);
         food.IsUsing = false;
 

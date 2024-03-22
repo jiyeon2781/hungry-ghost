@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IPoolable
 {
-    // bool IsUsing { get; set; }
+    bool IsUsing { get; set; }
     void OnPool() { }
 }

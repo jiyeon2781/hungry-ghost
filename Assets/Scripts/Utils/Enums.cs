@@ -12,4 +12,5 @@ public class Enums
         Result, // 결과 화면
         Loading, // 로딩 화면
     }
+
 }

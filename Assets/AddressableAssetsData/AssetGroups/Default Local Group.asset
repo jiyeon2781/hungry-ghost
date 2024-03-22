@@ -67,6 +67,41 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5bef41f8151d12e47b88b8ec00bc0b63
+    m_Address: Assets/Prefabs/Item/Foods/Broccoli.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cff631b005b811944a846f281776d825
+    m_Address: Assets/Prefabs/Item/Foods/Burger.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c6f47410b0c7bfa488e17d3d793d6de4
+    m_Address: Assets/Prefabs/Item/Foods/Cake.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8cf39e351e7c82408a1ea1822811ad9
+    m_Address: Assets/Prefabs/Item/Foods/Cupcake.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b701910af56d089428c372aa6ba53383
+    m_Address: Assets/Prefabs/Item/Foods/Garlic.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e883ef9085352484c9e3e76351515178
+    m_Address: Assets/Prefabs/Item/Foods/Mushroom.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3193c7f4a5f15774f852cd126f08b72a
+    m_Address: Assets/Prefabs/Item/Foods/Soda.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 34603aab4f0bf9b49a98ed90f10609ad, type: 2}
   m_SchemaSet:
