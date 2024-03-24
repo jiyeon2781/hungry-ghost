@@ -16,7 +16,7 @@ public class Food : MonoBehaviour, IPoolable
 
     public void SetFoodPrefab()
     {
-        var rand = Random.Range(0, Managers.DataManager.ItemDataCount + 1);
+        var rand = Random.Range(1, Managers.DataManager.ItemDataCount + 1);
         currentItemData = Managers.DataManager.GetItemDataUsingId(rand);
         _foodAddress += currentItemData.prefabName + ".prefab";
 
