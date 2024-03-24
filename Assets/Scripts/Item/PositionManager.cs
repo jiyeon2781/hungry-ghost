@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 
-public class SetItemPositions : MonoBehaviour
+public class PositionManager : MonoBehaviour
 {
     private List<ItemPosition> positions;
     [SerializeField] private int SetItemCount = 3;
     Dictionary<int, Food> foods;
+
+    // Position 관리 및 Food Prefab 설정
 
     private void Awake()
     {
@@ -15,9 +18,9 @@ public class SetItemPositions : MonoBehaviour
         foods = new Dictionary<int, Food>();
     }
 
-    private void Start()
+    private async void Start()
     {
-        Init();
+        await SetItems();
     }
 
     void Init()
@@ -28,5 +31,13 @@ public class SetItemPositions : MonoBehaviour
             var food = Managers.PoolManager.Pop(positions[posNum[i]].transform);
             foods.Add(posNum[i], food);
         }
+    }
+
+    public async UniTask SetItems()
+    {
+        Init();
+        await UniTask.Delay(1000);
+        // TODO 아이템이 빠졌을 때 주기적으로 세팅
+        Debug.Log("세팅 완료!");
     }
 }

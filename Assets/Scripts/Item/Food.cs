@@ -23,7 +23,7 @@ public class Food : MonoBehaviour, IPoolable
         Managers.ResourceManager.LoadAsync(_foodAddress, false, obj =>
         {
             Instantiate(obj, transform);
-        }, () => Debug.LogError("ddd"));
+        }, () => Debug.LogError($"[ResourceManager] Failed Loading \"{_foodAddress}\" GameObject"));
     }
 
     // Collider 충돌 진행 시 유령이 좋아하는 음식인지 아닌지

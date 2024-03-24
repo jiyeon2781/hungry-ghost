@@ -16,19 +16,20 @@ public class GameScene : BaseScene
     {
         SceneType = Enums.Scene.InGame;
         CreatePlayer();
-        SpawnItems();
+        CreateItemPoolAndPosition();
+        Managers.GameManager.Initialze();
     }
 
-    void SpawnItems()
+    void CreateItemPoolAndPosition()
     {
         Managers.ResourceManager.LoadAsync(_itemAddress, false, obj =>
         {
             Managers.PoolManager.InitFoodPool(obj.gameObject);
-            CreateItemPositionAndSetItem();
+            CreateItemPosition();
         }, () => Debug.LogError($"[ResourceManager] Failed Loading \"{_itemAddress}\" GameObject"));
     }
 
-    void CreateItemPositionAndSetItem()
+    void CreateItemPosition()
     {
         Managers.ResourceManager.LoadAsync(_positionAddress, false, obj =>
        {
@@ -39,17 +40,18 @@ public class GameScene : BaseScene
 
     void CreatePlayer()
     {
+        GameObject playerInstance;
         if (GameObject.Find("Player") == null)
         {
             Managers.ResourceManager.LoadAsync(_playerAddress, false, obj =>
             {
-                GameObject playerInstance = Instantiate(obj);
-                SetPlayerPosition(obj.gameObject);
+                playerInstance = Instantiate(obj);
+                SetPlayerPosition(playerInstance);
             }, () => Debug.LogError($"[ResourceManager] Failed Loading \"{_playerAddress}\" GameObject"));
         }
         else
         {
-            GameObject playerInstance = GameObject.Find("Player");
+            playerInstance = GameObject.Find("Player");
             SetPlayerPosition(playerInstance);
         }
     }

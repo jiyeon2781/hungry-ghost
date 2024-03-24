@@ -8,15 +8,32 @@ public class GameManager
     public int CurrentScore;
     public int PlayTime;
 
-    public void GameStart()
+    public void Initialze()
+    {
+        // TODO Init
+        CurrentScore = 0;
+        PlayTime = 60;
+
+        // UI Setting
+
+        // Game Start
+        Play();
+    }
+
+    public void Play()
     {
         // TODO Game Start
         IsGamePlaying = true;
-        CurrentScore = 0;
-        PlayTime = 60;
+        
+        // Position Setting and start 
+
+        // playing game
+
+        // end
+
     }
 
-    public void GameOver()
+    public void End()
     {
         // TODO Game Over
         IsGamePlaying = false;
