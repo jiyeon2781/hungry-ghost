@@ -25,7 +25,7 @@ public class PositionManager : MonoBehaviour
 
     void Init()
     {
-        List<int> posNum = MathUtility.MakeRandomNumbers(1, 1, 1);
+        List<int> posNum = MathUtility.MakeRandomNumbers(0, 4, SetItemCount, true);
         for (int i = 0; i < SetItemCount; i++)
         {
             var food = Managers.PoolManager.Pop(positions[posNum[i]].transform);
@@ -36,8 +36,9 @@ public class PositionManager : MonoBehaviour
     public async UniTask SetItems()
     {
         Init();
+        Debug.Log("세팅 완료!");
         await UniTask.Delay(1000);
         // TODO 아이템이 빠졌을 때 주기적으로 세팅
-        Debug.Log("세팅 완료!");
+        // while (Managers.GameManager.IsGamePlaying)
     }
 }
