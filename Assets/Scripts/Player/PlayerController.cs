@@ -5,11 +5,17 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _speed = 5.0f;
+    [SerializeField] private float _mouseSensitivity = 200f;
+
+    private float mouseY;
+    private float mouseX;
 
     void Start()
     {
         Managers.InputManager.InputKeyAction -= OnInputKeyboard;
+        Managers.InputManager.InputMouseAction -= OnInputMouse;
         Managers.InputManager.InputKeyAction += OnInputKeyboard;
+        Managers.InputManager.InputMouseAction += OnInputMouse;
     }
 
     void OnInputKeyboard()
@@ -22,5 +28,11 @@ public class PlayerController : MonoBehaviour
             transform.Translate(_speed * Time.deltaTime * Vector3.right);
         if (Input.GetKey(KeyCode.A))
             transform.Translate(_speed * Time.deltaTime * Vector3.left);
+    }
+    void OnInputMouse()
+    {
+        mouseX += Input.GetAxisRaw("Mouse X") * _mouseSensitivity * Time.deltaTime;
+
+        transform.localRotation = Quaternion.Euler(0f, mouseX, 0f);
     }
 }

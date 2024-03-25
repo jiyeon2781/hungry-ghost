@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class InputManager {
     public Action InputKeyAction = null;
+    public Action InputMouseAction = null;
     
     public void OnUpdate()
     {
         if (!Input.anyKey) return;
         if (InputKeyAction != null) InputKeyAction.Invoke();
+        if (InputMouseAction != null) InputMouseAction.Invoke();
     }
 }
