@@ -8,6 +8,7 @@ public class Food : MonoBehaviour, IPoolable
     private bool _isUsing;
     public bool IsUsing { get { return _isUsing; } set { _isUsing = value; } }
     public ItemData currentItemData;
+    private GameObject _food;
 
     public void Start()
     {
@@ -22,19 +23,21 @@ public class Food : MonoBehaviour, IPoolable
 
         Managers.ResourceManager.LoadAsync(_foodAddress, false, obj =>
         {
-            Instantiate(obj, transform);
+            _food = Instantiate(obj, transform);
         }, () => Debug.LogError($"[ResourceManager] Failed Loading \"{_foodAddress}\" GameObject"));
     }
-
-    // Collider 충돌 진행 시 유령이 좋아하는 음식인지 아닌지
-    // 좋아하는 음식이면 +, 싫어하는 음식이면 -
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            // TODO 원래 풀로 보내버리기(deactivated)
             Debug.Log("플레이어와 닿였어요!");
+            if (currentItemData.isFavoriteFood)
+                Managers.GameManager.CurrentScore += currentItemData.score;
+            else 
+                Managers.GameManager.CurrentScore -= currentItemData.score;
+            Managers.PoolManager.Push(gameObject.GetComponentInParent<Food>());
+            Destroy(_food);
         }
     }
 }
