@@ -6,9 +6,10 @@ public class Food : MonoBehaviour, IPoolable
 {
     [SerializeField] private string _foodAddress = "Assets/Prefabs/Item/Foods/";
     private bool _isUsing;
-    public bool IsUsing { get { return _isUsing; } set { _isUsing = value; } }
-    public ItemData currentItemData;
     private GameObject _food;
+
+    public ItemData currentItemData;
+    public bool IsUsing { get { return _isUsing; } set { _isUsing = value; } }
 
     public void Start()
     {
@@ -37,6 +38,7 @@ public class Food : MonoBehaviour, IPoolable
             else 
                 Managers.GameManager.CurrentScore -= currentItemData.score;
             Managers.PoolManager.Push(gameObject.GetComponentInParent<Food>());
+            PositionManager.Instance.OnDestroyFood(this);
             Destroy(_food);
         }
     }

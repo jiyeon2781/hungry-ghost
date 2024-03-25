@@ -3,19 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using Cysharp.Threading.Tasks;
+using System;
 
 public class PositionManager : MonoBehaviour
 {
-    private List<ItemPosition> positions;
-    [SerializeField] private int SetItemCount = 3;
-    Dictionary<int, Food> foods;
+    private static PositionManager _instance;
+    public static PositionManager Instance
+    {
+        get { return _instance; }
+    }
 
-    // Position 관리 및 Food Prefab 설정
+    [SerializeField] private int _setItemCount = 3;
+
+    private List<ItemPosition> positions;
+    private static Dictionary<Food, int> foods;
+
+    public Action<Food> OnDestroyFood;
 
     private void Awake()
     {
+        _instance = this;
         positions = GetComponentsInChildren<ItemPosition>().ToList();
-        foods = new Dictionary<int, Food>();
+        foods = new();
+
+        OnDestroyFood -= PopFoodDictionary;
+        OnDestroyFood += PopFoodDictionary;
     }
 
     private async void Start()
@@ -25,12 +37,17 @@ public class PositionManager : MonoBehaviour
 
     void Init()
     {
-        List<int> posNum = MathUtility.MakeRandomNumbers(0, 4, SetItemCount, true);
-        for (int i = 0; i < SetItemCount; i++)
+        List<int> posNum = MathUtility.MakeRandomNumbers(0, 4, _setItemCount, true);
+        for (int i = 0; i < _setItemCount; i++)
         {
             var food = Managers.PoolManager.Pop(positions[posNum[i]].transform);
-            foods.Add(posNum[i], food);
+            foods.Add(food, posNum[i]);
         }
+    }
+
+    public void PopFoodDictionary(Food food)
+    {
+        foods.Remove(food);
     }
 
     public async UniTask SetItems()
@@ -38,7 +55,11 @@ public class PositionManager : MonoBehaviour
         Init();
         Debug.Log("세팅 완료!");
         await UniTask.Delay(1000);
-        // TODO 아이템이 빠졌을 때 주기적으로 세팅
-        // while (Managers.GameManager.IsGamePlaying)
+
+        while (Managers.GameManager.IsGamePlaying)
+        {
+            if (foods.Count == _setItemCount) continue;
+            // TODO 아이템이 빠졌을 때 주기적으로 세팅
+        }
     }
 }

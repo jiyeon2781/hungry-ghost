@@ -7,7 +7,6 @@ public class GameScene : BaseScene
     [SerializeField] private string _playerAddress = "Assets/Prefabs/GhostPlayer/Player.prefab";
     [SerializeField] private string _itemAddress = "Assets/Prefabs/Item/Food.prefab";
     [SerializeField] private string _positionAddress = "Assets/Prefabs/Item/ItemPositions.prefab";
-    // TODO 추후 데이터 테이블로 변경
 
     [SerializeField] private Transform _playerStartPosition;
 

@@ -7,13 +7,13 @@ public class Managers : MonoBehaviour
     private static Managers _instance;
 
     // TODO Input other Manager 
-    private GameSceneManager _gameScene = new GameSceneManager();
-    private GameManager _game = new GameManager();
-    private ResourceManager _resource = new ResourceManager();
-    private InputManager _input = new InputManager();
-    private CameraManager _camera = new CameraManager();
-    private PoolManager _pool = new PoolManager();
-    private DataManager _data = new DataManager();
+    private GameSceneManager _gameScene = new();
+    private GameManager _game = new();
+    private ResourceManager _resource = new();
+    private InputManager _input = new();
+    private CameraManager _camera = new();
+    private PoolManager _pool = new();
+    private DataManager _data = new();
 
     static Managers Instance {
         get
@@ -22,6 +22,7 @@ public class Managers : MonoBehaviour
             return _instance;
         }
     }
+
     // TODO Input other Manager Properties
     public static GameSceneManager GameSceneManager { get { return Instance._gameScene; } }
     public static GameManager GameManager { get { return Instance._game; } }

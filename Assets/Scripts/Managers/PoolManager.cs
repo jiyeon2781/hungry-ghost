@@ -8,7 +8,7 @@ public class PoolManager
     public GameObject GameObject { get; private set; }
     public Transform RootTransform { get; set; }
 
-    private Queue<Food> _poolFoodQueue = new Queue<Food>();
+    private Queue<Food> _poolFoodQueue = new();
 
     public void InitFoodPool(GameObject original, int count = 5) // Food Pool 초기 생성
     {
