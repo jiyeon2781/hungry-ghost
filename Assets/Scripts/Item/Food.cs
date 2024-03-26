@@ -18,14 +18,15 @@ public class Food : MonoBehaviour, IPoolable
 
     public void SetFoodPrefab()
     {
+
         var rand = Random.Range(1, Managers.DataManager.ItemDataCount + 1);
         currentItemData = Managers.DataManager.GetItemDataUsingId(rand);
-        _foodAddress += currentItemData.prefabName + ".prefab";
+        var _foodPrefabAddress = _foodAddress + currentItemData.prefabName + ".prefab";
 
-        Managers.ResourceManager.LoadAsync(_foodAddress, false, obj =>
+        Managers.ResourceManager.LoadAsync(_foodPrefabAddress, false, obj =>
         {
             _food = Instantiate(obj, transform);
-        }, () => Debug.LogError($"[ResourceManager] Failed Loading \"{_foodAddress}\" GameObject"));
+        }, () => Debug.LogError($"[ResourceManager] Failed Loading \"{_foodPrefabAddress}\" GameObject"));
     }
 
     private void OnTriggerEnter(Collider other)

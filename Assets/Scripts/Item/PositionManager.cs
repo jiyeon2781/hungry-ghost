@@ -1,9 +1,8 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using Cysharp.Threading.Tasks;
-using System;
 
 public class PositionManager : MonoBehaviour
 {
@@ -13,7 +12,8 @@ public class PositionManager : MonoBehaviour
         get { return _instance; }
     }
 
-    [SerializeField] private int _setItemCount = 3;
+    [SerializeField] private int _itemCount = 3;
+    [SerializeField] private int _positionCount = 5;
 
     private List<ItemPosition> positions;
     private static Dictionary<Food, int> foods;
@@ -37,8 +37,8 @@ public class PositionManager : MonoBehaviour
 
     void Init()
     {
-        List<int> posNum = MathUtility.MakeRandomNumbers(0, 4, _setItemCount, true);
-        for (int i = 0; i < _setItemCount; i++)
+        List<int> posNum = MathUtility.MakeRandomNumbers(0, _positionCount - 1, _itemCount, true);
+        for (int i = 0; i < _itemCount; i++)
         {
             var food = Managers.PoolManager.Pop(positions[posNum[i]].transform);
             foods.Add(food, posNum[i]);
@@ -58,8 +58,13 @@ public class PositionManager : MonoBehaviour
 
         while (Managers.GameManager.IsGamePlaying)
         {
-            if (foods.Count == _setItemCount) continue;
-            // TODO 아이템이 빠졌을 때 주기적으로 세팅
+            await UniTask.WaitUntil(()=> foods.Count < _itemCount);
+            var rand = UnityEngine.Random.Range(0, _positionCount);
+            while (foods.ContainsValue(rand))
+                rand = UnityEngine.Random.Range(0, _positionCount);
+            var food = Managers.PoolManager.Pop(positions[rand].transform);
+            food.SetFoodPrefab();
+            foods.Add(food, rand);
         }
     }
 }
