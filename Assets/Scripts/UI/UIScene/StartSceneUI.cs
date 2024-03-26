@@ -1,8 +1,13 @@
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 
-public class StartSceneButton : MonoBehaviour
+public class StartSceneUI : UIBase
 {
+    protected override void Init()
+    {
+
+    }
+
     public async void StartGameAsync()
     {
         await Managers.GameSceneManager.LoadSceneAsync(Enums.Scene.InGame);

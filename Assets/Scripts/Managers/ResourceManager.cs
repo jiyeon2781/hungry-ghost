@@ -37,8 +37,6 @@ public class ResourceManager {
         };
     }
 
-
-
     public void Unload(GameObject obj)
     {
         Addressables.Release<GameObject>(obj);

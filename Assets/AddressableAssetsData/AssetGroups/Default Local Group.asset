@@ -102,6 +102,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65a7a175d132d66429c32fb438ae8969
+    m_Address: Assets/Prefabs/UI/InGameUI.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 34603aab4f0bf9b49a98ed90f10609ad, type: 2}
   m_SchemaSet:

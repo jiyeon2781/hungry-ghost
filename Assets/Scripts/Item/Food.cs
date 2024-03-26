@@ -33,7 +33,6 @@ public class Food : MonoBehaviour, IPoolable
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("플레이어와 닿였어요!");
             if (currentItemData.isFavoriteFood)
                 Managers.GameManager.CurrentScore += currentItemData.score;
             else 

@@ -14,6 +14,7 @@ public class Managers : MonoBehaviour
     private CameraManager _camera = new();
     private PoolManager _pool = new();
     private DataManager _data = new();
+    private UIManager _ui = new();
 
     static Managers Instance {
         get
@@ -31,6 +32,7 @@ public class Managers : MonoBehaviour
     public static CameraManager CameraManager { get { return Instance._camera; } }
     public static PoolManager PoolManager { get { return Instance._pool; } }
     public static DataManager DataManager { get { return Instance._data; } }
+    public static UIManager UIManager { get { return Instance._ui; } }
 
     private void Start()
     {

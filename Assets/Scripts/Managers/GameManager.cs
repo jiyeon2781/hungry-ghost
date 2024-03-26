@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager
+public class GameManager : MonoBehaviour
 {
     public bool IsGamePlaying;
     public int CurrentScore;
     public int PlayTime;
+
+    private GameObject _objUI;
 
     public void Initialze()
     {
@@ -15,6 +17,8 @@ public class GameManager
         PlayTime = 60;
 
         // UI Setting
+        var ui = Managers.UIManager.ShowUI<InGameUI>("InGameUI");
+        _objUI = ui.gameObject;
 
         // Game Start
         Play();
