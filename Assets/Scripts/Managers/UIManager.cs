@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIManager
 {
-    private string _address = "Assets/Prefabs/UI/";
+    private string _address = "Assets/Prefab/UI/";
     private UIBase _currentUI = null;
     public GameObject Root
     {
@@ -23,14 +23,11 @@ public class UIManager
             name = typeof(T).Name;
 
         var prefabAddress = _address + name + ".prefab";
-        T ui = null;
 
-        Managers.ResourceManager.LoadAsync(prefabAddress, false, obj =>
-        {
-            Object.Instantiate(obj, Root.transform);
-            ui = obj.GetComponentInChildren<T>();
-            _currentUI = ui;
-        }, () => Debug.LogError($"[ResourceManager] Failed Loading \"{name}\" UI"));
+        var obj = Managers.ResourceManager.Instantiate(prefabAddress, Root.transform);
+        T ui = obj.GetComponentInChildren<T>();
+        _currentUI = ui;
+
         return ui;
     }
 }

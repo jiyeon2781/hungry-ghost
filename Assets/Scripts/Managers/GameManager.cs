@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,27 +9,22 @@ public class GameManager : MonoBehaviour
     public int CurrentScore;
     public int PlayTime;
 
-    private GameObject _objUI;
+    // private GameObject _objUI;
+    private InGameUI _gameUI;
 
     public void Initialze()
     {
         // TODO Init
+        _gameUI = Managers.UIManager.ShowUI<InGameUI>("InGameUI");
+
         CurrentScore = 0;
         PlayTime = 60;
+        IsGamePlaying = true;
 
-        // UI Setting
-        var ui = Managers.UIManager.ShowUI<InGameUI>("InGameUI");
-        _objUI = ui.gameObject;
-
-        // Game Start
         Play();
     }
-
     public void Play()
     {
-        // TODO Game Start
-        IsGamePlaying = true;
-        
         // Position Setting and start 
 
         // playing game

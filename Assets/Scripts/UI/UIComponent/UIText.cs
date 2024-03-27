@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIText : UIBase
 {
-    private TextMesh textMesh;
+    private TMP_Text textMeshPro;
+
+    private void Awake()
+    {
+        textMeshPro = GetComponent<TMP_Text>();
+    }
+
     protected override void Init()
     {
-        textMesh = GetComponent<TextMesh>();
+        
     }
 
     public void SetText(string str)
     {
-        textMesh.text = str;
+        textMeshPro.text = str;
     }
 
     public void DeactivateText()

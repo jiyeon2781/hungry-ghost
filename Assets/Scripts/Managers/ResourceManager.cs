@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -35,6 +36,30 @@ public class ResourceManager {
             else
                 onFailed?.Invoke();
         };
+    }
+    public async UniTask<GameObject> InstantiateInAsync(string address, Transform parent = null, bool isCaching = false)
+    {
+        GameObject result = null;
+        LoadAsync(address, isCaching, obj =>
+        {
+            result = UnityEngine.Object.Instantiate(obj, parent);
+        }, () => Debug.LogError($"[ResourceManager] Failed to load \"{address}\" GameObject"));
+
+        await UniTask.WaitUntil(() => result != null);
+        return result;
+    }
+
+    public GameObject Instantiate(string address, Transform parent = null)
+    {
+        var prefab = Addressables.LoadAssetAsync<GameObject>(address).WaitForCompletion();
+
+        if (prefab == null)
+        {
+            Debug.LogError($"[ResourceManager] Failed to load {address} prefab");
+            return null;
+        }
+
+        return UnityEngine.Object.Instantiate(prefab, parent);
     }
 
     public void Unload(GameObject obj)

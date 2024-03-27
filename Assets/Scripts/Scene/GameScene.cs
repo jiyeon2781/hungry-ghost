@@ -28,25 +28,18 @@ public class GameScene : BaseScene
         }, () => Debug.LogError($"[ResourceManager] Failed Loading \"{_itemAddress}\" GameObject"));
     }
 
-    void CreateItemPosition()
+    async void CreateItemPosition()
     {
-        Managers.ResourceManager.LoadAsync(_positionAddress, false, obj =>
-       {
-           _positions = obj.gameObject;
-           Instantiate(_positions);
-       }, () => Debug.LogError($"[ResourceManager] Failed Loading \"{_positionAddress}\" GameObject"));
+        _positions = await Managers.ResourceManager.InstantiateInAsync(_positionAddress);
     }
 
-    void CreatePlayer()
+    async void CreatePlayer()
     {
         GameObject playerInstance;
         if (GameObject.Find("Player") == null)
         {
-            Managers.ResourceManager.LoadAsync(_playerAddress, false, obj =>
-            {
-                playerInstance = Instantiate(obj);
-                SetPlayerPosition(playerInstance);
-            }, () => Debug.LogError($"[ResourceManager] Failed Loading \"{_playerAddress}\" GameObject"));
+            playerInstance = await Managers.ResourceManager.InstantiateInAsync(_playerAddress);
+            SetPlayerPosition(playerInstance);
         }
         else
         {

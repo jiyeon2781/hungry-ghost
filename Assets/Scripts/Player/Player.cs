@@ -17,9 +17,6 @@ public class Player : MonoBehaviour
     {
         int random = Random.Range(1, _playerCharacterCount + 1);
         _address += " (" + random + ").prefab";
-        Managers.ResourceManager.LoadAsync(_address, false, obj =>
-        {
-            Instantiate(obj, transform);
-        }, () => Debug.LogError($"[ResourceManager] Failed Loading \"{_address}\" GameObject"));
+        _ = Managers.ResourceManager.InstantiateInAsync(_address, transform);
     }
 }

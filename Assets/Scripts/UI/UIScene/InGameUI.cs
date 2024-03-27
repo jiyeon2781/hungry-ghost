@@ -9,8 +9,12 @@ public class InGameUI : UIBase
 
     protected override void Init()
     {
-        // TODO
-
+        SetUIText();
     }
 
+    public void SetUIText()
+    {
+        _scoreText.SetText(Managers.GameManager.CurrentScore + "¡°");
+        _timeText.SetText(Managers.GameManager.PlayTime + "√ ");
+    }
 }
