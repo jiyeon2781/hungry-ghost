@@ -7,5 +7,6 @@ public class ResultScene : BaseScene
     protected override void Init()
     {
         SceneType = Enums.Scene.Result;
+        var ui = Managers.UIManager.ShowUI<GameOverUI>("GameOverUI");
     }
 }

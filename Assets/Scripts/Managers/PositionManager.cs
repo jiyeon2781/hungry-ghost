@@ -53,8 +53,7 @@ public class PositionManager : MonoBehaviour
     public async UniTask SetItems()
     {
         Init();
-        Debug.Log("세팅 완료!");
-        await UniTask.Delay(1000);
+        await UniTask.Delay(100);
 
         while (Managers.GameManager.IsGamePlaying)
         {

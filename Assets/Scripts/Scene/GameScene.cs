@@ -5,32 +5,14 @@ using UnityEngine;
 public class GameScene : BaseScene
 {
     [SerializeField] private string _playerAddress = "Assets/Prefabs/GhostPlayer/Player.prefab";
-    [SerializeField] private string _itemAddress = "Assets/Prefabs/Item/Food.prefab";
-    [SerializeField] private string _positionAddress = "Assets/Prefabs/Item/ItemPositions.prefab";
 
     [SerializeField] private Transform _playerStartPosition;
 
-    private GameObject _positions;
     protected override void Init()
     {
         SceneType = Enums.Scene.InGame;
         CreatePlayer();
-        CreateItemPoolAndPosition();
         Managers.GameManager.Initialze();
-    }
-
-    void CreateItemPoolAndPosition()
-    {
-        Managers.ResourceManager.LoadAsync(_itemAddress, false, obj =>
-        {
-            Managers.PoolManager.InitFoodPool(obj.gameObject);
-            CreateItemPosition();
-        }, () => Debug.LogError($"[ResourceManager] Failed Loading \"{_itemAddress}\" GameObject"));
-    }
-
-    async void CreateItemPosition()
-    {
-        _positions = await Managers.ResourceManager.InstantiateInAsync(_positionAddress);
     }
 
     async void CreatePlayer()

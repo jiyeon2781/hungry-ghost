@@ -103,7 +103,17 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 65a7a175d132d66429c32fb438ae8969
-    m_Address: Assets/Prefab/UI/InGameUI.prefab
+    m_Address: Assets/Prefabs/UI/InGameUI.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd97c7e0777ad6a4e8c029570f0f60d1
+    m_Address: Assets/Prefabs/UI/GameOverUI.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 383f7324f909cc149b40e53f35c3962f
+    m_Address: Assets/Prefabs/UI/RankingUI.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

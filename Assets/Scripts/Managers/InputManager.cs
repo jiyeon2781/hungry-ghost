@@ -9,7 +9,7 @@ public class InputManager {
     
     public void OnUpdate()
     {
-        if (!Input.anyKey) return;
+        if (!Input.anyKey || !Managers.GameManager.IsGamePlaying) return;
         if (InputKeyAction != null) InputKeyAction.Invoke();
         if (InputMouseAction != null) InputMouseAction.Invoke();
     }

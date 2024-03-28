@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIManager
 {
-    private string _address = "Assets/Prefab/UI/";
+    private string _address = "Assets/Prefabs/UI/";
     private UIBase _currentUI = null;
     public GameObject Root
     {
@@ -25,7 +25,7 @@ public class UIManager
         var prefabAddress = _address + name + ".prefab";
 
         var obj = Managers.ResourceManager.Instantiate(prefabAddress, Root.transform);
-        T ui = obj.GetComponentInChildren<T>();
+        T ui = obj.GetComponent<T>();
         _currentUI = ui;
 
         return ui;

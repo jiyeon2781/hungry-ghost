@@ -30,13 +30,14 @@ public class Food : MonoBehaviour, IPoolable
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Destroy(_food);
             if (currentItemData.isFavoriteFood)
                 Managers.GameManager.CurrentScore += currentItemData.score;
             else 
                 Managers.GameManager.CurrentScore -= currentItemData.score;
+            Managers.GameManager.ChangeScore();
             Managers.PoolManager.Push(gameObject.GetComponentInParent<Food>());
             PositionManager.Instance.OnDestroyFood(this);
-            Destroy(_food);
         }
     }
 }
