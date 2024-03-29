@@ -28,7 +28,7 @@ public class UIManager
 
         var obj = Managers.ResourceManager.Instantiate(prefabAddress, Root.transform);
         T ui = obj.GetComponent<T>();
-        _currentUI = ui.gameObject;
+        _currentUI = obj.gameObject;
 
         return ui;
     }

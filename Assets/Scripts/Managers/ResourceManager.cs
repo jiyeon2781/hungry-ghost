@@ -52,6 +52,7 @@ public class ResourceManager {
     public GameObject Instantiate(string address, Transform parent = null)
     {
         var prefab = Addressables.LoadAssetAsync<GameObject>(address).WaitForCompletion();
+        Addressables.Release(prefab);
 
         if (prefab == null)
         {

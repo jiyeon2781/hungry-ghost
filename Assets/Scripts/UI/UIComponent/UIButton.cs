@@ -6,14 +6,15 @@ using UnityEngine.UI;
 
 public class UIButton : UIBase
 {
-    [SerializeField] private Enums.Scene scene = Enums.Scene.Default;
-    private Button button;
-    private TMP_Text buttonText;
+    [SerializeField] private Enums.Scene _scene = Enums.Scene.Default;
+    [SerializeField] private string _showUIName = "RankingUI";
+    private Button _button;
+    private TMP_Text _buttonText;
 
     private void Awake()
     {
-        button = GetComponent<Button>();
-        buttonText = GetComponentInChildren<TMP_Text>();
+        _button = GetComponent<Button>();
+        _buttonText = GetComponentInChildren<TMP_Text>();
     }
 
     protected override void Init()
@@ -21,14 +22,14 @@ public class UIButton : UIBase
 
     }
 
-    public void OnClickNextScene()
+    public void OnClickOpenScene()
     {
-        Managers.GameSceneManager.LoadScene(scene);
+        Managers.GameSceneManager.LoadScene(_scene);
     }
 
-    public void OnClickRankingUI()
+    public void OnClickShowUI()
     {
-        Managers.UIManager.ShowUI<RankingUI>("RankingUI");
+        Managers.UIManager.ShowUI<RankingUI>(_showUIName);
     }
 
     public void OnClickExit()
