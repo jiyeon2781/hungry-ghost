@@ -9,6 +9,7 @@ public class GameManager
     public bool IsGamePlaying;
     public int CurrentScore;
     public int PlayTime;
+    public int MaxScoreRank = 5;
 
     public Action ChangeScore;
 
@@ -25,7 +26,7 @@ public class GameManager
         _gameUI = Managers.UIManager.ShowUI<InGameUI>("InGameUI");
 
         CurrentScore = 0;
-        PlayTime = 5;
+        PlayTime = 30;
         IsGamePlaying = true;
         _isGameFinish = false;
 
@@ -82,7 +83,40 @@ public class GameManager
     {
         // TODO Game Over
         IsGamePlaying = false;
+        SaveScore();
+
         Debug.Log("∞‘¿” ≥°!");
         await Managers.GameSceneManager.LoadSceneAsync(Enums.Scene.Result);
+    }
+
+    private void SaveScore()
+    {
+        var prevScore = -1;
+
+        for (int i = 1; i <= MaxScoreRank; i++)
+        {
+            if (!PlayerPrefs.HasKey(i.ToString()))
+            {
+                if (prevScore < 0) PlayerPrefs.SetInt(i.ToString(), CurrentScore);
+                else PlayerPrefs.SetInt(i.ToString(), prevScore);
+                break;
+            }
+
+            var curRankScore = PlayerPrefs.GetInt(i.ToString());
+
+            if (prevScore >= 0)
+            {
+                PlayerPrefs.SetInt(i.ToString(), prevScore);
+                prevScore = curRankScore;
+                continue;
+            }
+
+            if (curRankScore < CurrentScore)
+            {
+                PlayerPrefs.SetInt(i.ToString(), CurrentScore);
+                prevScore = curRankScore;
+                continue; 
+            }
+        }
     }
 }
