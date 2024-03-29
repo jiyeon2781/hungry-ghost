@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameOverUI : UIBase
+public class RankingUI : UIBase
 {
     protected override void Init()
     {
-        Debug.Log("HI~");
+        throw new System.NotImplementedException();
     }
-
-
 }

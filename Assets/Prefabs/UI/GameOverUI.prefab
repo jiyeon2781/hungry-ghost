@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 4317757916212452412}
   - component: {fileID: 6297754259660943403}
   - component: {fileID: 4380488071487765928}
+  - component: {fileID: 6502888698284837696}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -329,7 +330,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6297754259660943403}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6502888698284837696}
+        m_TargetAssemblyTypeName: UIButton, Assembly-CSharp
+        m_MethodName: OnClickExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6502888698284837696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696811739844070997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f074e9af7794414eaa69249209bc265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: 0
 --- !u!1 &2642958215948874010
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,6 +622,7 @@ GameObject:
   - component: {fileID: 3788800368432073961}
   - component: {fileID: 8859836555554928092}
   - component: {fileID: 8463942510643693725}
+  - component: {fileID: 8429874321317794491}
   m_Layer: 5
   m_Name: ReTryButton
   m_TagString: Untagged
@@ -704,7 +731,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8859836555554928092}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8429874321317794491}
+        m_TargetAssemblyTypeName: UIButton, Assembly-CSharp
+        m_MethodName: OnClickNextScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8429874321317794491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3559894974166055278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f074e9af7794414eaa69249209bc265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: 2
 --- !u!1 &4873126739541065358
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,6 +903,7 @@ GameObject:
   - component: {fileID: 5738448684409753496}
   - component: {fileID: 7483253315022126245}
   - component: {fileID: 2439038657622216400}
+  - component: {fileID: 6852577507017822662}
   m_Layer: 5
   m_Name: RankButton
   m_TagString: Untagged
@@ -959,7 +1012,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7483253315022126245}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6852577507017822662}
+        m_TargetAssemblyTypeName: UIButton, Assembly-CSharp
+        m_MethodName: OnClickRankingUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6852577507017822662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5849155689397533539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f074e9af7794414eaa69249209bc265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: 0
 --- !u!1 &6101738559988269618
 GameObject:
   m_ObjectHideFlags: 0
