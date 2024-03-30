@@ -31,7 +31,7 @@ public class UIButton : UIBase
     public void OnClickShowUI()
     {
         var isDestroy = true;
-        if (_showUIName == "RankingUI") isDestroy = false;
+        if (_showUIName == "RankingUI" || _showUIName == "TutorialUI") isDestroy = false;
         Managers.UIManager.ShowUI<UIBase>(_showUIName, isDestroy);
     }
 

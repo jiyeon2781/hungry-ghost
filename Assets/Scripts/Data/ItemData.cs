@@ -12,6 +12,7 @@ public class ItemData
     public bool isFavoriteFood;
     public int score;
     public string description;
+    public string iconImagePath;
 }
 
 public class ItemDatas
