@@ -122,6 +122,41 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb23b6ac0db7a25468255289bfa791ec
+    m_Address: Assets/Arts/Items/Food/Icon/cupcake.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 16684ce42dee8674bbdc9a59152ead5f
+    m_Address: Assets/Arts/Items/Food/Icon/mushroom.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 27d9de59cb7b5b2468c985ead6424ab8
+    m_Address: Assets/Arts/Items/Food/Icon/garlic.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 99d480c162dce8647b4fc6ada8b1979c
+    m_Address: Assets/Arts/Items/Food/Icon/cake.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73762c9f0c56f0e4ab11c0e658e5967d
+    m_Address: Assets/Arts/Items/Food/Icon/hamburger.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 620c9b989deef7a48be4bd96de886680
+    m_Address: Assets/Arts/Items/Food/Icon/broccoli.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ca147f9423d3574dbf85f31676226d0
+    m_Address: Assets/Arts/Items/Food/Icon/soda.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 34603aab4f0bf9b49a98ed90f10609ad, type: 2}
   m_SchemaSet:
