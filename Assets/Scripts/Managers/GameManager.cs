@@ -68,8 +68,8 @@ public class GameManager
     {
         while (PlayTime > 0)
         {
-            PlayTime -= 1;
             await UniTask.Delay(1000);
+            PlayTime -= 1;
             _gameUI.SetUITimeText();
         }
     }
