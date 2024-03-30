@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 7780666344970471642}
   - component: {fileID: 7327760879555599568}
   - component: {fileID: 1801025259184887475}
-  - component: {fileID: 4258909197797976118}
+  - component: {fileID: 5653411261095066644}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -172,7 +172,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -30}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7780666344970471642
 CanvasRenderer:
@@ -256,9 +256,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4258909197797976118}
-        m_TargetAssemblyTypeName: StartButton, Assembly-CSharp
-        m_MethodName: StartGameAsync
+      - m_Target: {fileID: 5653411261095066644}
+        m_TargetAssemblyTypeName: UIButton, Assembly-CSharp
+        m_MethodName: OnClickOpenScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -268,7 +268,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4258909197797976118
+--- !u!114 &5653411261095066644
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -277,9 +277,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3662002010764268704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7427a0549a4158d4696b6dc1e35b235a, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f074e9af7794414eaa69249209bc265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scene: 2
+  _showUIName: RankingUI
 --- !u!1 &5331659138846007265
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,6 +294,7 @@ GameObject:
   - component: {fileID: 3623417598589331492}
   - component: {fileID: 7591225052155938678}
   - component: {fileID: 8559328843044396814}
+  - component: {fileID: 3422882932228958943}
   m_Layer: 5
   m_Name: QuestionButton
   m_TagString: Untagged
@@ -315,8 +318,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -30, y: 30}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: -50, y: 50}
+  m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3623417598589331492
 CanvasRenderer:
@@ -400,6 +403,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3422882932228958943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5331659138846007265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f074e9af7794414eaa69249209bc265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scene: 0
+  _showUIName: RankingUI
 --- !u!1 &5808978255059505987
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,9 +563,9 @@ GameObject:
   - component: {fileID: 1950649430436418880}
   - component: {fileID: 4937619755045321590}
   - component: {fileID: 2611594380487294866}
-  - component: {fileID: 8732210448475974075}
+  - component: {fileID: 2485295656367257436}
   m_Layer: 5
-  m_Name: Ranking
+  m_Name: RankingButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -572,7 +589,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -75}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1950649430436418880
 CanvasRenderer:
@@ -656,9 +673,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8732210448475974075}
-        m_TargetAssemblyTypeName: StartButton, Assembly-CSharp
-        m_MethodName: StartGameAsync
+      - m_Target: {fileID: 2485295656367257436}
+        m_TargetAssemblyTypeName: UIButton, Assembly-CSharp
+        m_MethodName: OnClickShowUI
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -668,7 +685,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8732210448475974075
+--- !u!114 &2485295656367257436
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -677,9 +694,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6087785280570854243}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7427a0549a4158d4696b6dc1e35b235a, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f074e9af7794414eaa69249209bc265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scene: 0
+  _showUIName: RankingUI
 --- !u!1 &6133894165507433480
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,6 +845,7 @@ GameObject:
   - component: {fileID: 3413302542083569177}
   - component: {fileID: 8962596058139575510}
   - component: {fileID: 6512093418338978778}
+  - component: {fileID: 4473999107398758065}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -851,7 +871,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -120}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3413302542083569177
 CanvasRenderer:
@@ -934,7 +954,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8962596058139575510}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4473999107398758065}
+        m_TargetAssemblyTypeName: UIButton, Assembly-CSharp
+        m_MethodName: OnClickExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4473999107398758065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743922077024166336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f074e9af7794414eaa69249209bc265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scene: 0
+  _showUIName: RankingUI
 --- !u!1 &7515546185196913307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,6 +1195,7 @@ GameObject:
   - component: {fileID: 5773740243189149196}
   - component: {fileID: 1221371036203869618}
   - component: {fileID: 3207514415520833551}
+  - component: {fileID: 2127904238629381674}
   m_Layer: 5
   m_Name: StartSceneUI
   m_TagString: Untagged
@@ -1244,3 +1291,15 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2127904238629381674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8472344326570215585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7427a0549a4158d4696b6dc1e35b235a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

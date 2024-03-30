@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -29,7 +30,14 @@ public class UIButton : UIBase
 
     public void OnClickShowUI()
     {
-        Managers.UIManager.ShowUI<RankingUI>(_showUIName);
+        var isDestroy = true;
+        if (_showUIName == "RankingUI") isDestroy = false;
+        Managers.UIManager.ShowUI<UIBase>(_showUIName, isDestroy);
+    }
+
+    public void OnClickBackButton()
+    {
+        Managers.UIManager.BackUI<UIBase>();
     }
 
     public void OnClickExit()

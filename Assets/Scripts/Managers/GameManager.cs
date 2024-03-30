@@ -23,7 +23,7 @@ public class GameManager
 
     public void Initialze()
     {
-        _gameUI = Managers.UIManager.ShowUI<InGameUI>("InGameUI");
+        _gameUI = Managers.UIManager.ShowUI<InGameUI>();
 
         CurrentScore = 0;
         PlayTime = 30;
