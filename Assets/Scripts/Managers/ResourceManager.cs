@@ -67,4 +67,11 @@ public class ResourceManager {
     {
         Addressables.Release<GameObject>(obj);
     }
+
+    public void LoadSprite(string address, Action<Sprite> onSuccess)
+    {
+        var sptire = Addressables.LoadAssetAsync<Sprite>(address).WaitForCompletion();
+        if (sptire == null) Debug.LogError($"[ResourceManager] Failed to load {address} sprite");
+        else onSuccess.Invoke(sptire);
+    }
 }

@@ -59,6 +59,7 @@ public class PositionManager : MonoBehaviour
             await UniTask.WaitUntil(()=> foods.Count < _itemCount);
             await UniTask.WaitForSeconds(5f);
             // 삭제됐다가 다시 생기니 타이밍 이슈.. -> 조금 텀을 두기로 함
+            if (!Managers.GameManager.IsGamePlaying) break;
 
             var rand = UnityEngine.Random.Range(0, _positionCount);
             while (foods.ContainsValue(rand))

@@ -26,7 +26,7 @@ public class GameManager
         _gameUI = Managers.UIManager.ShowUI<InGameUI>();
 
         CurrentScore = 0;
-        PlayTime = 999;
+        PlayTime = 60;
         IsGamePlaying = true;
         _isGameFinish = false;
 
