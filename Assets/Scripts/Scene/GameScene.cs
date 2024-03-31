@@ -11,23 +11,19 @@ public class GameScene : BaseScene
     protected override void Init()
     {
         SceneType = Enums.Scene.InGame;
-        CreatePlayer();
         Managers.GameManager.Initialze();
+        CreatePlayer();
     }
 
     async void CreatePlayer()
     {
         GameObject playerInstance;
         if (GameObject.Find("Player") == null)
-        {
             playerInstance = await Managers.ResourceManager.InstantiateInAsync(_playerAddress);
-            SetPlayerPosition(playerInstance);
-        }
         else
-        {
             playerInstance = GameObject.Find("Player");
-            SetPlayerPosition(playerInstance);
-        }
+
+        SetPlayerPosition(playerInstance);
     }
 
     void SetPlayerPosition(GameObject playerInstance)

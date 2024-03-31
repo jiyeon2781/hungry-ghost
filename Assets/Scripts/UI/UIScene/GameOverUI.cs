@@ -7,11 +7,12 @@ public class GameOverUI : UIBase
 {
     private string _address = "Assets/Arts/UI/CharacterUI/";
 
-    [SerializeField] private string _happyGhostImageName = "happy-ghost.png";
     [SerializeField] private string _sadGhostImageName = "sad-ghost.png";
+    [SerializeField] private string _happyGhostImageName = "happy-ghost.png";
 
     [SerializeField] private UIText _subText;
     [SerializeField] private UIText _scoreText;
+
     [SerializeField] private Image _ghostImg;
 
     protected override void Init()

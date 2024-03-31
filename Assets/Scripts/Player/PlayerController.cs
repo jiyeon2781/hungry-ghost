@@ -18,6 +18,12 @@ public class PlayerController : MonoBehaviour
         Managers.InputManager.InputMouseAction += OnInputMouse;
     }
 
+    private void OnDestroy()
+    {
+        Managers.InputManager.InputKeyAction -= OnInputKeyboard;
+        Managers.InputManager.InputMouseAction -= OnInputMouse;
+    }
+
     void OnInputKeyboard()
     {
         if (Input.GetKey(KeyCode.W))

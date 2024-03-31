@@ -19,7 +19,6 @@ public class GameManager
     private string _positionAddress = "Assets/Prefabs/Item/ItemPositions.prefab";
 
     private GameObject _positions;
-    private bool _isGameFinish;
 
     public void Initialze()
     {
@@ -28,7 +27,6 @@ public class GameManager
         CurrentScore = 0;
         PlayTime = 60;
         IsGamePlaying = true;
-        _isGameFinish = false;
 
         ChangeScore -= UpdateScore;
         ChangeScore += UpdateScore;
@@ -56,9 +54,7 @@ public class GameManager
     {
         // playing game
         await UpdateTime();
-
-        _isGameFinish = true;
-
+        
         // end
         End();
 
