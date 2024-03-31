@@ -41,7 +41,7 @@
       "name": "브로콜리",
       "prefabName": "Broccoli",
       "isFavoriteFood": false,
-      "score": -5,
+      "score": 5,
       "description": "유령은 브로콜리를 항상 남겼어요.",
       "iconImagePath": "Assets/Arts/Items/Food/Icon/broccoli.png"
     },
@@ -50,16 +50,16 @@
       "name": "버섯",
       "prefabName": "Mushroom",
       "isFavoriteFood": false,
-      "score": -20,
+      "score": 20,
       "description": "버섯은 왜 만들어졌는지 유령은 이해할 수 없어요!",
-      "iconImagePath": "Assets/Arts/Items/Food/Icon/broccoli.png"
+      "iconImagePath": "Assets/Arts/Items/Food/Icon/mushroom.png"
     },
     {
       "id": 7,
       "name": "마늘",
       "prefabName": "Garlic",
       "isFavoriteFood": false,
-      "score": -30,
+      "score": 30,
       "description": "유령은 마늘이 세상에서 다 사라졌으면 좋겠다고 해요.",
       "iconImagePath": "Assets/Arts/Items/Food/Icon/garlic.png"
     }

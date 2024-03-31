@@ -11,10 +11,10 @@ public class Managers : MonoBehaviour
     private GameManager _game = new();
     private ResourceManager _resource = new();
     private InputManager _input = new();
-    private CameraManager _camera = new();
     private PoolManager _pool = new();
     private DataManager _data = new();
     private UIManager _ui = new();
+    private SoundManager _sound = new();
 
     static Managers Instance {
         get
@@ -29,10 +29,10 @@ public class Managers : MonoBehaviour
     public static GameManager GameManager { get { return Instance._game; } }
     public static ResourceManager ResourceManager { get { return Instance._resource; } }
     public static InputManager InputManager { get { return Instance._input; } }
-    public static CameraManager CameraManager { get { return Instance._camera; } }
     public static PoolManager PoolManager { get { return Instance._pool; } }
     public static DataManager DataManager { get { return Instance._data; } }
     public static UIManager UIManager { get { return Instance._ui; } }
+    public static SoundManager SoundManager { get { return Instance._sound; } }
 
     private void Start()
     {

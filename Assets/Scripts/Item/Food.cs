@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,25 +12,29 @@ public class Food : MonoBehaviour, IPoolable
     public ItemData currentItemData;
     public bool IsUsing { get { return _isUsing; } set { _isUsing = value; } }
 
-    public void Start()
+    public async void Start()
     {
-        SetFoodPrefab();
+        PositionManager.Instance.OnDestroyFood -= PositionManager.Instance.PopFoodDictionary;
+        PositionManager.Instance.OnDestroyFood += PositionManager.Instance.PopFoodDictionary;
+
+        await SetFoodPrefab();
     }
 
-    public async void SetFoodPrefab()
+    public async UniTask SetFoodPrefab()
     {
 
         var rand = Random.Range(1, Managers.DataManager.ItemDataCount + 1);
         currentItemData = Managers.DataManager.GetItemDataUsingId(rand);
-        var _foodPrefabAddress = _foodAddress + currentItemData.prefabName + ".prefab";
 
-        _food = await Managers.ResourceManager.InstantiateInAsync(_foodPrefabAddress, transform);
+        _isUsing = true;
+        _food = await Managers.ResourceManager.InstantiateInAsync(_foodAddress + currentItemData.prefabName + ".prefab", transform);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && _isUsing)
         {
+            _isUsing = false;
             Destroy(_food);
             if (currentItemData.isFavoriteFood)
                 Managers.GameManager.CurrentScore += currentItemData.score;

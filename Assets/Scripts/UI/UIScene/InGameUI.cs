@@ -20,6 +20,6 @@ public class InGameUI : UIBase
 
     public void SetUIScoreText()
     {
-        _scoreText.SetText(Managers.GameManager.CurrentScore + "Á¡");
+        _scoreText.SetText(Managers.GameManager.CurrentScore.ToString() + "Á¡");
     }
 }

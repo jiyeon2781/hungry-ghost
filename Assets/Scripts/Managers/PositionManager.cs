@@ -26,8 +26,6 @@ public class PositionManager : MonoBehaviour
         positions = GetComponentsInChildren<ItemPosition>().ToList();
         foods = new();
 
-        OnDestroyFood -= PopFoodDictionary;
-        OnDestroyFood += PopFoodDictionary;
     }
 
     private async void Start()
@@ -35,7 +33,7 @@ public class PositionManager : MonoBehaviour
         await SetItems();
     }
 
-    void Init()
+    private void Init()
     {
         List<int> posNum = MathUtility.MakeRandomNumbers(0, _positionCount - 1, _itemCount, true);
         for (int i = 0; i < _itemCount; i++)
@@ -53,16 +51,21 @@ public class PositionManager : MonoBehaviour
     public async UniTask SetItems()
     {
         Init();
-        await UniTask.Delay(100);
+
+        await UniTask.WaitForSeconds(0.1f);
 
         while (Managers.GameManager.IsGamePlaying)
         {
             await UniTask.WaitUntil(()=> foods.Count < _itemCount);
+            await UniTask.WaitForSeconds(5f);
+            // 삭제됐다가 다시 생기니 타이밍 이슈.. -> 조금 텀을 두기로 함
+
             var rand = UnityEngine.Random.Range(0, _positionCount);
             while (foods.ContainsValue(rand))
                 rand = UnityEngine.Random.Range(0, _positionCount);
             var food = Managers.PoolManager.Pop(positions[rand].transform);
-            food.SetFoodPrefab();
+            await food.SetFoodPrefab();
+
             foods.Add(food, rand);
         }
     }
