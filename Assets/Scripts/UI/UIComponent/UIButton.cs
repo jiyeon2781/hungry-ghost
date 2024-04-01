@@ -9,8 +9,11 @@ public class UIButton : UIBase
 {
     [SerializeField] private Enums.Scene _scene = Enums.Scene.Default;
     [SerializeField] private string _showUIName = "RankingUI";
+
     private Button _button;
     private TMP_Text _buttonText;
+
+    public Action OnClickButton;
 
     private void Awake()
     {
@@ -30,13 +33,19 @@ public class UIButton : UIBase
 
     public void OnClickShowUI()
     {
-        var isDestroy = true;
-        if (_showUIName == "RankingUI" || _showUIName == "TutorialUI") isDestroy = false;
-        Managers.UIManager.ShowUI<UIBase>(_showUIName, isDestroy);
+        OnClickButton?.Invoke();
+        Managers.UIManager.ShowUI<UIBase>(_showUIName);
+    }
+
+    public void OnClickShowUIDoNotDestroy()
+    {
+        OnClickButton?.Invoke();
+        Managers.UIManager.ShowUI<UIBase>(_showUIName, false);
     }
 
     public void OnClickBackButton()
     {
+        OnClickButton?.Invoke();
         Managers.UIManager.BackUI<UIBase>();
     }
 

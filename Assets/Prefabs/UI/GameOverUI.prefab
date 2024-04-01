@@ -722,6 +722,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f629b9460c2aa2f41a94cf954a591db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sadGhostImageName: sad-ghost.png
+  _happyGhostImageName: happy-ghost.png
   _subText: {fileID: 2053969284459414615}
   _scoreText: {fileID: 1880711941335982586}
   _ghostImg: {fileID: 7047348953612423264}
@@ -1194,7 +1196,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6852577507017822662}
         m_TargetAssemblyTypeName: UIButton, Assembly-CSharp
-        m_MethodName: OnClickShowUI
+        m_MethodName: OnClickShowUIDoNotDestroy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

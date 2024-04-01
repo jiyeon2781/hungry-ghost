@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7067430759449604601}
   - component: {fileID: 860399075698098137}
   - component: {fileID: 6821651762419807351}
+  - component: {fileID: 1524278700357212866}
   m_Layer: 5
   m_Name: PauseButton
   m_TagString: Untagged
@@ -35,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -70, y: -70}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -50, y: -50}
+  m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7067430759449604601
 CanvasRenderer:
@@ -119,7 +120,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 860399075698098137}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1524278700357212866}
+        m_TargetAssemblyTypeName: UIButton, Assembly-CSharp
+        m_MethodName: OnClickShowUIDoNotDestroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1524278700357212866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384102788597407536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f074e9af7794414eaa69249209bc265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scene: 0
+  _showUIName: PauseMenuUI
 --- !u!1 &2287143420472101013
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,6 +413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scoreText: {fileID: 3818812112918269040}
   _timeText: {fileID: 1770726361171739003}
+  _pausedButton: {fileID: 1524278700357212866}
 --- !u!1 &8664360497338377649
 GameObject:
   m_ObjectHideFlags: 0

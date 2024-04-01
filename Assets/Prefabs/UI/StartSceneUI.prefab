@@ -405,7 +405,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1595217950354206773}
         m_TargetAssemblyTypeName: UIButton, Assembly-CSharp
-        m_MethodName: OnClickShowUI
+        m_MethodName: OnClickShowUIDoNotDestroy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -687,7 +687,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2485295656367257436}
         m_TargetAssemblyTypeName: UIButton, Assembly-CSharp
-        m_MethodName: OnClickShowUI
+        m_MethodName: OnClickShowUIDoNotDestroy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

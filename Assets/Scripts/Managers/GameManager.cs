@@ -7,6 +7,8 @@ using UnityEngine;
 public class GameManager
 {
     public bool IsGamePlaying;
+    public bool IsGamePaused;
+
     public int CurrentScore;
     public int PlayTime;
     public int MaxScoreRank = 5;
@@ -27,6 +29,7 @@ public class GameManager
         CurrentScore = 0;
         PlayTime = 60;
         IsGamePlaying = true;
+        IsGamePaused = false;
 
         ChangeScore -= UpdateScore;
         ChangeScore += UpdateScore;
@@ -64,6 +67,7 @@ public class GameManager
     {
         while (PlayTime > 0)
         {
+            await UniTask.WaitUntil(() => !IsGamePaused);
             await UniTask.Delay(1000);
             PlayTime -= 1;
             _gameUI.SetUITimeText();

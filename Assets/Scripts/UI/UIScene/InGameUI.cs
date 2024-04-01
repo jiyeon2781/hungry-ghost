@@ -6,11 +6,18 @@ public class InGameUI : UIBase
 {
     [SerializeField] private UIText _scoreText;
     [SerializeField] private UIText _timeText;
+    [SerializeField] private UIButton _pausedButton;
 
     protected override void Init()
     {
         SetUITimeText();
         SetUIScoreText();
+        _pausedButton.OnClickButton += CompleteClickPausedButton;
+    }
+
+    private void OnDestroy()
+    {
+        _pausedButton.OnClickButton -= CompleteClickPausedButton;
     }
 
     public void SetUITimeText()
@@ -21,5 +28,10 @@ public class InGameUI : UIBase
     public void SetUIScoreText()
     {
         _scoreText.SetText(Managers.GameManager.CurrentScore.ToString() + "Á¡");
+    }
+
+    public void CompleteClickPausedButton()
+    {
+        Managers.GameManager.IsGamePaused = true;
     }
 }
