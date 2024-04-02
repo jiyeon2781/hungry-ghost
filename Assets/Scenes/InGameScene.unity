@@ -526,6 +526,7 @@ GameObject:
   - component: {fileID: 347672092}
   - component: {fileID: 347672097}
   - component: {fileID: 347672098}
+  - component: {fileID: 347672099}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -633,6 +634,14 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!81 &347672099
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347672091}
+  m_Enabled: 1
 --- !u!1 &376574290
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,6 +1248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerAddress: Assets/Prefabs/GhostPlayer/Player.prefab
+  _pathBgm: Assets/Sounds/BGM/InGame.wav
   _playerStartPosition: {fileID: 225103203}
 --- !u!1 &1257459177
 GameObject:

@@ -24,6 +24,8 @@ public class Managers : MonoBehaviour
         }
     }
 
+    public static bool IsInitialized = false;
+
     // TODO Input other Manager Properties
     public static GameSceneManager GameSceneManager { get { return Instance._gameScene; } }
     public static GameManager GameManager { get { return Instance._game; } }
@@ -37,6 +39,11 @@ public class Managers : MonoBehaviour
     private void Start()
     {
         Init();
+
+        _data.Init();
+        _sound.Init();
+
+        IsInitialized = true;
     }
 
     private void Update()

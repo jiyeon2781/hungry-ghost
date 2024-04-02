@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameScene : BaseScene
 {
     [SerializeField] private string _playerAddress = "Assets/Prefabs/GhostPlayer/Player.prefab";
+    [SerializeField] private string _pathBgm = "Assets/Sounds/BGM/InGame.wav";
 
     [SerializeField] private Transform _playerStartPosition;
 

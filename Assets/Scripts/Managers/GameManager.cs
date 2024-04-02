@@ -19,6 +19,7 @@ public class GameManager
 
     private string _itemAddress = "Assets/Prefabs/Item/Food.prefab";
     private string _positionAddress = "Assets/Prefabs/Item/ItemPositions.prefab";
+    private string _pathBgm = "Assets/Sounds/BGM/InGame.wav";
 
     private GameObject _positions;
 
@@ -34,7 +35,6 @@ public class GameManager
         ChangeScore -= UpdateScore;
         ChangeScore += UpdateScore;
 
-        // Position Setting and start 
         CreateItemPoolAndPosition();
         Play();
     }
@@ -43,7 +43,7 @@ public class GameManager
     {
         Managers.ResourceManager.LoadAsync(_itemAddress, false, obj =>
         {
-            Managers.PoolManager.InitFoodPool(obj.gameObject);
+            Managers.PoolManager.InitFoodPool(obj.gameObject, 20);
             CreateItemPosition();
         }, () => Debug.LogError($"[ResourceManager] Failed Loading \"{_itemAddress}\" GameObject"));
     }
@@ -55,10 +55,10 @@ public class GameManager
 
     public async void Play()
     {
-        // playing game
+        Managers.SoundManager.Play(_pathBgm, SoundManager.SoundType.BGM);
+
         await UpdateTime();
         
-        // end
         End();
 
     }
@@ -81,11 +81,9 @@ public class GameManager
 
     public async void End()
     {
-        // TODO Game Over
         IsGamePlaying = false;
         SaveScore();
-
-        Debug.Log("∞‘¿” ≥°!");
+        Managers.SoundManager.StopBGM();
         await Managers.GameSceneManager.LoadSceneAsync(Enums.Scene.Result);
     }
 

@@ -37,6 +37,7 @@ public class ResourceManager {
                 onFailed?.Invoke();
         };
     }
+
     public async UniTask<GameObject> InstantiateInAsync(string address, Transform parent = null, bool isCaching = false)
     {
         GameObject result = null;
@@ -73,5 +74,13 @@ public class ResourceManager {
         var sptire = Addressables.LoadAssetAsync<Sprite>(address).WaitForCompletion();
         if (sptire == null) Debug.LogError($"[ResourceManager] Failed to load {address} sprite");
         else onSuccess.Invoke(sptire);
+    }
+
+    public AudioClip LoadAudioClip(string address)
+    {
+        AudioClip audioClip = null;
+        audioClip = Addressables.LoadAssetAsync<AudioClip>(address).WaitForCompletion();
+        if (audioClip == null) Debug.LogError($"[ResourceManager] Failed to load {address} audio Clip");
+        return audioClip;
     }
 }
