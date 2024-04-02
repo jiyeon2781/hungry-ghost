@@ -6,6 +6,7 @@ using UnityEngine;
 public class Food : MonoBehaviour, IPoolable
 {
     [SerializeField] private string _foodAddress = "Assets/Prefabs/Item/Foods/";
+    [SerializeField] private float _rotationSpeed = 0.5f;
     private bool _isUsing;
     private GameObject _food;
 
@@ -28,6 +29,19 @@ public class Food : MonoBehaviour, IPoolable
 
         _isUsing = true;
         _food = await Managers.ResourceManager.InstantiateInAsync(_foodAddress + currentItemData.prefabName + ".prefab", transform);
+        await RotationFood();
+    }
+
+    public async UniTask RotationFood()
+    {
+        await UniTask.WaitUntil(() => _food != null);
+        while (_isUsing)
+        {
+            await UniTask.Yield();
+            if (_food == null) break;
+            _food.transform.Rotate(0, _rotationSpeed, 0);
+        }
+            
     }
 
     private void OnTriggerEnter(Collider other)

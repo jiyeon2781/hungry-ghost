@@ -62,7 +62,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 60239906a7c47ed4e9ebc54663da2599
+  - m_GUID: ba94db6faa4ff1f4593ea762e8692a02
     m_Address: Assets/Prefabs/Item/ItemPositions.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
