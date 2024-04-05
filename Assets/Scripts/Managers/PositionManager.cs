@@ -30,7 +30,7 @@ public class PositionManager : MonoBehaviour
 
     private async void Start()
     {
-        await SetItems();
+        await SetItemsPlayingGame();
     }
 
     private void Init()
@@ -48,7 +48,7 @@ public class PositionManager : MonoBehaviour
         foods.Remove(food);
     }
 
-    public async UniTask SetItems()
+    public async UniTask SetItemsPlayingGame()
     {
         Init();
 

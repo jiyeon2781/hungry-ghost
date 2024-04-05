@@ -16,7 +16,7 @@ public class Managers : MonoBehaviour
     private UIManager _ui = new();
     private SoundManager _sound = new();
 
-    static Managers Instance {
+    public static Managers Instance {
         get
         {
             Init();
@@ -51,7 +51,7 @@ public class Managers : MonoBehaviour
         _input.OnUpdate();
     }
 
-    static void Init()
+    public static void Init()
     {
         GameObject gameObj = GameObject.Find("--Managers");
         if (gameObj == null)
