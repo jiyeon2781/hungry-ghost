@@ -62,7 +62,7 @@ public class SoundManager
         AudioClip audioClip = null;
 
         if (!path.Contains("Assets/Sounds/")) {
-            Debug.LogWarning("$[Sound Manager] path를 확인해주세요.");
+            Debug.LogWarning("$[Sound Manager] path is not valid");
             return null;
          }
 

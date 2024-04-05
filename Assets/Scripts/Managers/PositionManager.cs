@@ -58,7 +58,7 @@ public class PositionManager : MonoBehaviour
         {
             await UniTask.WaitUntil(()=> foods.Count < _itemCount);
             await UniTask.WaitForSeconds(5f);
-            // »èÁ¦µÆ´Ù°¡ ´Ù½Ã »ı±â´Ï Å¸ÀÌ¹Ö ÀÌ½´.. -> Á¶±İ ÅÒÀ» µÎ±â·Î ÇÔ
+            // í…€ì„ ë‘ê³  ìƒì„±
             if (!Managers.GameManager.IsGamePlaying) break;
 
             var rand = UnityEngine.Random.Range(0, _positionCount);

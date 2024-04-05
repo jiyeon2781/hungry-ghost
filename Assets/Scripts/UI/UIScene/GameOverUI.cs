@@ -19,15 +19,15 @@ public class GameOverUI : UIBase
     {
         if (Managers.GameManager.CurrentScore <= 0)
         {
-            _subText.SetText("À¯·ÉÀº Ã¤¼Ò¸¦ ³Ê¹« ¸¹ÀÌ ¸Ô¾ú¾î¿ä..");
+            _subText.SetText("ìœ ë ¹ì€ ì±„ì†Œë¥¼ ë„ˆë¬´ ë§ì´ ë¨¹ì—ˆì–´ìš”..");
             SetImage(false);
         }
         else if (Managers.GameManager.CurrentScore >= 100)
         {
-            _subText.SetText("À¯·ÉÀº ÁÁ¾ÆÇÏ´Â À½½ÄÀ» ¸¹ÀÌ ¸Ô¾î¼­ ³Ê¹« Çàº¹ÇØ¿ä!");
+            _subText.SetText("ìœ ë ¹ì€ ì¢‹ì•„í•˜ëŠ” ìŒì‹ì„ ë§ì´ ë¨¹ì–´ì„œ ë„ˆë¬´ í–‰ë³µí•´ìš”!");
             SetImage(true);
         }
-        _scoreText.SetText(Managers.GameManager.CurrentScore.ToString() + "Á¡");
+        _scoreText.SetText(Managers.GameManager.CurrentScore.ToString() + "ì ");
     }
 
     private void SetImage(bool isHappy)

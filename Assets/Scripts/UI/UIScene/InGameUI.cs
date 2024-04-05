@@ -22,12 +22,12 @@ public class InGameUI : UIBase
 
     public void SetUITimeText()
     {
-        _timeText.SetText(Managers.GameManager.PlayTime + "√ ");
+        _timeText.SetText(Managers.GameManager.PlayTime + "Ï¥à");
     }
 
     public void SetUIScoreText()
     {
-        _scoreText.SetText(Managers.GameManager.CurrentScore.ToString() + "¡°");
+        _scoreText.SetText(Managers.GameManager.CurrentScore.ToString() + "Ï†ê");
     }
 
     public void CompleteClickPausedButton()

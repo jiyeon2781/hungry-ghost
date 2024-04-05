@@ -1,6 +1,5 @@
 using Cysharp.Threading.Tasks;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -8,7 +7,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class ResourceManager {
     private Dictionary<string, GameObject> _resources = new Dictionary<string, GameObject>();
-    // Address, Object¸¦ ÀúÀå
+    // Address, Object ì €ìž¥
     public ResourceManager() { _resources.Clear(); _resources = new Dictionary<string, GameObject>(); }
 
     private GameObject _object;

@@ -7,10 +7,10 @@ public class Enums
     public enum Scene
     {
         Default,
-        Start, // ½ÃÀÛ È­¸é
-        InGame, // °ÔÀÓ ÁøÇà Áß
-        Result, // °á°ú È­¸é
-        Loading, // ·Îµù È­¸é
+        Start, // ì‹œìž‘ í™”ë©´
+        InGame, // ê²Œìž„ ì§„í–‰ ì¤‘
+        Result, // ê²°ê³¼ í™”ë©´
+        Loading, // ë¡œë”© í™”ë©´
     }
 
 }

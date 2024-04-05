@@ -10,7 +10,7 @@ public class PoolManager
 
     private Queue<Food> _poolFoodQueue = new();
 
-    public void InitFoodPool(GameObject original, int count = 5) // Food Pool ÃÊ±â »ı¼º
+    public void InitFoodPool(GameObject original, int count = 5) // Food Pool ì´ˆê¸° ìƒì„±
     {
         GameObject = original;
         RootTransform = new GameObject().transform;
@@ -20,14 +20,14 @@ public class PoolManager
             Push(Create());
     }
 
-    Food Create() // Object »ı¼º
+    Food Create() // Object ìƒì„±
     {
         GameObject obj = Object.Instantiate<GameObject>(GameObject);
         obj.name = GameObject.name;
         return obj.GetOrAddComponent<Food>();
     }
 
-    public void Push(Food food) // Ç®¿¡ Push
+    public void Push(Food food) // í’€ì— Push
     {
         if (food == null) return;
 
@@ -39,7 +39,7 @@ public class PoolManager
         _poolFoodQueue.Enqueue(food);
     }
 
-    public Food Pop(Transform parent) // Ç®¿¡¼­ ²¨³»¿À±â
+    public Food Pop(Transform parent) // í’€ì—ì„œ êº¼ë‚´ì˜¤ê¸°
     {
         Food food;
 

@@ -5,7 +5,6 @@ using UnityEngine;
 public class GameScene : BaseScene
 {
     [SerializeField] private string _playerAddress = "Assets/Prefabs/GhostPlayer/Player.prefab";
-    [SerializeField] private string _pathBgm = "Assets/Sounds/BGM/InGame.wav";
 
     [SerializeField] private Transform _playerStartPosition;
 
@@ -31,7 +30,7 @@ public class GameScene : BaseScene
     {
         if (_playerStartPosition == null)
         {
-            Debug.Log("Player의 Position을 지정해주세요.");
+            Debug.Log("[Game Scene] Player start position is not founded");
             return;
         }
         playerInstance.transform.position = _playerStartPosition.position;
