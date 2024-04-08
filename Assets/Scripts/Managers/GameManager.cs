@@ -17,7 +17,8 @@ public class GameManager
 
     private InGameUI _gameUI;
 
-    private string _itemAddress = "Assets/Prefabs/Item/Food.prefab";
+    private string _favoriteFoodAddress = "Assets/Prefabs/Item/FavoriteFood.prefab";
+    private string _hateFoodAddress = "Assets/Prefabs/Item/HateFood.prefab";
     private string _positionAddress = "Assets/Prefabs/Item/ItemPositions.prefab";
     private string _pathBgm = "Assets/Sounds/BGM/InGame.wav";
 
@@ -41,11 +42,18 @@ public class GameManager
 
     void CreateItemPoolAndPosition()
     {
-        Managers.ResourceManager.LoadAsync(_itemAddress, false, obj =>
+        Managers.ResourceManager.LoadAsync(_favoriteFoodAddress, false, obj =>
         {
-            Managers.PoolManager.InitFoodPool(obj.gameObject, 20);
+            // TODO 추후 데이터 수정
+            Managers.PoolManager.InitFoodPool(obj.gameObject, 5);
+        }, () => Debug.LogError($"[ResourceManager] Failed Loading \"{_favoriteFoodAddress}\" GameObject"));
+
+        Managers.ResourceManager.LoadAsync(_hateFoodAddress, false, obj =>
+        {
+            // TODO 추후 데이터 수정
+            Managers.PoolManager.InitFoodPool(obj.gameObject, 5);
             CreateItemPosition();
-        }, () => Debug.LogError($"[ResourceManager] Failed Loading \"{_itemAddress}\" GameObject"));
+        }, () => Debug.LogError($"[ResourceManager] Failed Loading \"{_hateFoodAddress}\" GameObject"));
     }
 
     async void CreateItemPosition()
@@ -60,7 +68,6 @@ public class GameManager
         await UpdateTime();
         
         End();
-
     }
 
     private async UniTask UpdateTime()

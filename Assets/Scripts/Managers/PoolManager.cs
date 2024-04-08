@@ -6,15 +6,26 @@ using UnityEngine;
 public class PoolManager
 {
     public GameObject GameObject { get; private set; }
+    public Transform MainRoot { get; set; }
     public Transform RootTransform { get; set; }
 
     private Queue<Food> _poolFoodQueue = new();
 
+    public void Init()
+    {
+        if (MainRoot != null) return;
+        MainRoot = new GameObject { name = "--Pool_Root" }.transform;
+        Object.DontDestroyOnLoad(MainRoot);
+    }
+
     public void InitFoodPool(GameObject original, int count = 5) // Food Pool 초기 생성
     {
+        Init();
+
         GameObject = original;
         RootTransform = new GameObject().transform;
         RootTransform.name = $"--{original.name}_Root";
+        RootTransform.SetParent(MainRoot);
 
         for (int i = 0; i < count; i++)
             Push(Create());

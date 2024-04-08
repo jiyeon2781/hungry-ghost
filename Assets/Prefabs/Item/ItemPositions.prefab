@@ -854,5 +854,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cad121ee24a93c54fab03ad027895180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemCount: 10
+  _favoriteItemCount: 5
+  _hateItemCount: 5
   _positionCount: 18

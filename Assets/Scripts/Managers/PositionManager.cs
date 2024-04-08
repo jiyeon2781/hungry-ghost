@@ -12,8 +12,14 @@ public class PositionManager : MonoBehaviour
         get { return _instance; }
     }
 
-    [SerializeField] private int _itemCount = 3;
+    [SerializeField] private int _favoriteItemCount = 5;
+    [SerializeField] private int _hateItemCount = 3;
     [SerializeField] private int _positionCount = 5;
+
+    public int FavoriteItemCount { get { return _favoriteItemCount; } set { _favoriteItemCount = value; } }
+    public int HateItemCount { get { return _hateItemCount; } set { _hateItemCount = value; } }
+
+    private int _itemCount;
 
     private List<ItemPosition> positions;
     private static Dictionary<Food, int> foods;
@@ -25,7 +31,7 @@ public class PositionManager : MonoBehaviour
         _instance = this;
         positions = GetComponentsInChildren<ItemPosition>().ToList();
         foods = new();
-
+        _itemCount = _hateItemCount + _favoriteItemCount;
     }
 
     private async void Start()
@@ -65,7 +71,7 @@ public class PositionManager : MonoBehaviour
             while (foods.ContainsValue(rand))
                 rand = UnityEngine.Random.Range(0, _positionCount);
             var food = Managers.PoolManager.Pop(positions[rand].transform);
-            await food.SetFoodPrefab();
+            food.OnPool();
 
             foods.Add(food, rand);
         }

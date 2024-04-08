@@ -197,6 +197,51 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 869e67c07df08ff4c912f766b9099b27
+    m_Address: Assets/Prefabs/Item/Foods/FavoriteFoods/Burger.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f38c8d3cbf92ee54b9de6beef30655b7
+    m_Address: Assets/Prefabs/Item/Foods/FavoriteFoods/Cake.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d1ec2653f1c94174597b0416063f6915
+    m_Address: Assets/Prefabs/Item/Foods/FavoriteFoods/Cupcake.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 22e16a35767755e4eb9f890d3e670401
+    m_Address: Assets/Prefabs/Item/Foods/FavoriteFoods/Soda.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e0397ddaae3b69419283d9487fd17f4
+    m_Address: Assets/Prefabs/Item/Foods/HateFoods/Broccoli.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75c99152c5aa68b4583be85b9d09b749
+    m_Address: Assets/Prefabs/Item/Foods/HateFoods/Garlic.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca751ac74b2e5404caffdfcc894c0c4b
+    m_Address: Assets/Prefabs/Item/Foods/HateFoods/Mushroom.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7587e6402cfc3be429cddb4a15c29af1
+    m_Address: Assets/Prefabs/Item/HateFood.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 91f2f7e5cf2016743be7a6e5722194ee
+    m_Address: Assets/Prefabs/Item/FavoriteFood.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 34603aab4f0bf9b49a98ed90f10609ad, type: 2}
   m_SchemaSet:
