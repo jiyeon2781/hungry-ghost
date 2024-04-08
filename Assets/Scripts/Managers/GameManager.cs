@@ -90,6 +90,7 @@ public class GameManager
     {
         IsGamePlaying = false;
         SaveScore();
+        Managers.PoolManager.Clear();
         Managers.SoundManager.StopBGM();
         await Managers.GameSceneManager.LoadSceneAsync(Enums.Scene.Result);
     }

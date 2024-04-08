@@ -7,15 +7,18 @@ public class PoolManager
 {
     public GameObject GameObject { get; private set; }
     public Transform MainRoot { get; set; }
-    public Transform RootTransform { get; set; }
+    public List<Transform> RootTransform { get; set; }
 
     private Queue<Food> _poolFoodQueue = new();
-
+    // Queue -> Dic?
+    private Dictionary<Enums.Item, Queue<Food>> _poolDic = new();
     public void Init()
     {
         if (MainRoot != null) return;
         MainRoot = new GameObject { name = "--Pool_Root" }.transform;
         Object.DontDestroyOnLoad(MainRoot);
+
+        RootTransform = new List<Transform>();
     }
 
     public void InitFoodPool(GameObject original, int count = 5) // Food Pool 초기 생성
@@ -23,9 +26,10 @@ public class PoolManager
         Init();
 
         GameObject = original;
-        RootTransform = new GameObject().transform;
-        RootTransform.name = $"--{original.name}_Root";
-        RootTransform.SetParent(MainRoot);
+
+        RootTransform.Add(new GameObject().transform);
+        RootTransform[RootTransform.Count - 1].name = $"--{original.name}_Root";
+        RootTransform[RootTransform.Count - 1].SetParent(MainRoot);
 
         for (int i = 0; i < count; i++)
             Push(Create());
@@ -42,19 +46,26 @@ public class PoolManager
     {
         if (food == null) return;
 
-        food.transform.parent = RootTransform;
+        food.transform.parent = RootTransform[(int) food.ItemType];
         food.transform.localPosition = Vector3.zero;
         food.gameObject.SetActive(false);
         food.IsUsing = false;
 
-        _poolFoodQueue.Enqueue(food);
+        if (_poolDic.ContainsKey(food.ItemType))
+        {
+            _poolDic.TryGetValue(food.ItemType, out _poolFoodQueue);
+            _poolFoodQueue.Enqueue(food);
+            return;
+        }
+
+        _poolDic.Add(food.ItemType, new Queue<Food>());
     }
 
-    public Food Pop(Transform parent) // 풀에서 꺼내오기
+    public Food Pop(Transform parent, Enums.Item itemType = Enums.Item.Favorite) // 풀에서 꺼내오기
     {
         Food food;
 
-        if (_poolFoodQueue.Count > 0) food = _poolFoodQueue.Dequeue();
+        if (_poolDic[itemType].Count > 0) food = _poolDic[itemType].Dequeue();
         else food = Create();
 
         if (parent == null)
@@ -71,6 +82,6 @@ public class PoolManager
     public void Clear()
     {
         foreach(Transform child in RootTransform) GameObject.Destroy(child.gameObject);
-        _poolFoodQueue.Clear();
+        _poolDic.Clear();
     }
 }

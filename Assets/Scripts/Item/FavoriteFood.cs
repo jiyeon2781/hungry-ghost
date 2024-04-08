@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class FavoriteFood : Food
 {
+    private void Awake()
+    {
+        _itemType = Enums.Item.Favorite;
+    }
+
     public override async void OnPool()
     {
         await SetFoodPrefab();

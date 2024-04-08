@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class HateFood : Food
 {
+    private void Awake()
+    {
+        _itemType = Enums.Item.Hate;
+    }
+
     public override async void OnPool()
     {
         await SetFoodPrefab();

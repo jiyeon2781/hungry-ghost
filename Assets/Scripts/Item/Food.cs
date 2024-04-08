@@ -11,9 +11,11 @@ public class Food : MonoBehaviour, IPoolable
     protected bool _isUsing;
     protected ItemData _currentItemData;
     protected GameObject _food;
+    protected Enums.Item _itemType;
 
     public bool IsUsing { get { return _isUsing; } set { _isUsing = value; } }
     public ItemData CurrentItemData { get { return _currentItemData; } set { _currentItemData = value; } }
+    public Enums.Item ItemType { get { return _itemType; } set { _itemType = value; } }
 
     public void Start()
     {

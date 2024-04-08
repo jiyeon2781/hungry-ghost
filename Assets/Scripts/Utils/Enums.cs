@@ -13,4 +13,9 @@ public class Enums
         Loading, // 로딩 화면
     }
 
+    public enum Item
+    {
+        Favorite,
+        Hate,
+    }
 }
