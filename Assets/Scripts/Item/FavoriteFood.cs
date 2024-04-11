@@ -28,7 +28,7 @@ public class FavoriteFood : Food
     public override void InteractionPlayer(GameObject player)
     {
         base.InteractionPlayer(player);
-        Managers.GameManager.CurrentScore += CurrentItemData.Score;
+        Managers.GameManager.CurrentScore += _currentItemData.Score;
         Managers.GameManager.ChangeScore();
     }
 }

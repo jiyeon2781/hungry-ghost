@@ -5,7 +5,6 @@ using UnityEngine;
 
 public interface IPoolable
 {
-    ItemData CurrentItemData { get; set; }
     bool IsUsing { get; set; }
     Enums.Item ItemType { get; set; }
     virtual void OnPool() { }

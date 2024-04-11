@@ -10,7 +10,7 @@ public class PoolManager
     public List<Transform> RootTransform { get; set; }
 
     private Queue<Food> _poolFoodQueue = new();
-    // Queue -> Dic?
+    
     private Dictionary<Enums.Item, Queue<Food>> _poolDic = new();
     public void Init()
     {
