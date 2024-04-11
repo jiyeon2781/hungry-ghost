@@ -18,18 +18,18 @@ public class PoolManager
         MainRoot = new GameObject { name = "--Pool_Root" }.transform;
         Object.DontDestroyOnLoad(MainRoot);
 
-        RootTransform = new List<Transform>();
+        RootTransform = new List<Transform>(new Transform[(int)Enums.Item.MaxCount]);
     }
 
-    public void InitFoodPool(GameObject original, int count = 5) // Food Pool 초기 생성
+    public void InitFoodPool(GameObject original,int count = 5, Enums.Item item = Enums.Item.Favorite) // Food Pool 초기 생성
     {
         Init();
 
         GameObject = original;
 
-        RootTransform.Add(new GameObject().transform);
-        RootTransform[RootTransform.Count - 1].name = $"--{original.name}_Root";
-        RootTransform[RootTransform.Count - 1].SetParent(MainRoot);
+        RootTransform[(int) item] = new GameObject().transform;
+        RootTransform[(int) item].name = $"--{original.name}_Root";
+        RootTransform[(int) item].SetParent(MainRoot);
 
         for (int i = 0; i < count; i++)
             Push(Create());

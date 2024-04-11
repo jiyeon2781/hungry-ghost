@@ -20,6 +20,7 @@ public class PositionManager : MonoBehaviour
     public int HateItemCount { get { return _hateItemCount; } set { _hateItemCount = value; } }
 
     private int _itemCount;
+    private int rand;
 
     private List<ItemPosition> positions;
     private static Dictionary<Food, int> foods;
@@ -32,6 +33,7 @@ public class PositionManager : MonoBehaviour
         positions = GetComponentsInChildren<ItemPosition>().ToList();
         foods = new();
         _itemCount = _hateItemCount + _favoriteItemCount;
+        rand = UnityEngine.Random.Range(0, _positionCount);
     }
 
     private async void Start()
@@ -42,9 +44,11 @@ public class PositionManager : MonoBehaviour
     private void Init()
     {
         List<int> posNum = MathUtility.MakeRandomNumbers(0, _positionCount - 1, _itemCount, true);
+        var itemType = Enums.Item.Favorite;
         for (int i = 0; i < _itemCount; i++)
         {
-            var food = Managers.PoolManager.Pop(positions[posNum[i]].transform);
+            if (_favoriteItemCount == i) itemType = Enums.Item.Hate;
+            var food = Managers.PoolManager.Pop(positions[posNum[i]].transform, itemType);
             foods.Add(food, posNum[i]);
         }
     }
@@ -67,10 +71,9 @@ public class PositionManager : MonoBehaviour
             // 텀을 두고 생성
             if (!Managers.GameManager.IsGamePlaying) break;
 
-            var rand = UnityEngine.Random.Range(0, _positionCount);
             while (foods.ContainsValue(rand))
                 rand = UnityEngine.Random.Range(0, _positionCount);
-            var food = Managers.PoolManager.Pop(positions[rand].transform);
+            var food = Managers.PoolManager.Pop(positions[rand].transform, (Enums.Item) UnityEngine.Random.Range(0, (int) Enums.Item.MaxCount));
             food.OnPool();
 
             foods.Add(food, rand);

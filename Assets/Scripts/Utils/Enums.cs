@@ -17,5 +17,6 @@ public class Enums
     {
         Favorite,
         Hate,
+        MaxCount,
     }
 }

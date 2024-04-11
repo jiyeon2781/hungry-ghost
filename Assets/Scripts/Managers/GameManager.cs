@@ -51,7 +51,7 @@ public class GameManager
         Managers.ResourceManager.LoadAsync(_hateFoodAddress, false, obj =>
         {
             // TODO 추후 데이터 수정
-            Managers.PoolManager.InitFoodPool(obj.gameObject, 5);
+            Managers.PoolManager.InitFoodPool(obj.gameObject, 5, Enums.Item.Hate);
             CreateItemPosition();
         }, () => Debug.LogError($"[ResourceManager] Failed Loading \"{_hateFoodAddress}\" GameObject"));
     }

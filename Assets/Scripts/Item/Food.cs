@@ -43,7 +43,6 @@ public class Food : MonoBehaviour, IPoolable
         {
             _isUsing = false;
             Destroy(_food);
-            Managers.GameManager.ChangeScore();
             Managers.PoolManager.Push(gameObject.GetComponentInParent<Food>());
             PositionManager.Instance.OnDestroyFood(this);
         }

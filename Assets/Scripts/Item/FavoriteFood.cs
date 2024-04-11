@@ -12,9 +12,9 @@ public class FavoriteFood : Food
 
     public override async void OnPool()
     {
-        await SetFoodPrefab();
+        await SetFavoriteFoodPrefab();
     }
-    public async UniTask SetFoodPrefab()
+    public async UniTask SetFavoriteFoodPrefab()
     {
 
         var rand = Random.Range(Managers.DataManager.FavoriteItemDataStartIdx, Managers.DataManager.GetFavoriteItemDataCount() + 1);
@@ -29,5 +29,6 @@ public class FavoriteFood : Food
     {
         base.InteractionPlayer(player);
         Managers.GameManager.CurrentScore += CurrentItemData.score;
+        Managers.GameManager.ChangeScore();
     }
 }

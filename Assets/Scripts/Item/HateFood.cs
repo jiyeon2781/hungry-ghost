@@ -12,9 +12,9 @@ public class HateFood : Food
 
     public override async void OnPool()
     {
-        await SetFoodPrefab();
+        await SetHateFoodPrefab();
     }
-    public async UniTask SetFoodPrefab()
+    public async UniTask SetHateFoodPrefab()
     {
 
         var rand = Random.Range(Managers.DataManager.HateItemDataStartIdx, Managers.DataManager.GetHateItemDataCount() + 1);
@@ -29,5 +29,6 @@ public class HateFood : Food
     {
         base.InteractionPlayer(player);
         Managers.GameManager.CurrentScore -= CurrentItemData.score;
+        Managers.GameManager.ChangeScore();
     }
 }
