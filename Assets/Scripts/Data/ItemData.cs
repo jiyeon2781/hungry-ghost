@@ -7,16 +7,16 @@ using System.Collections.Generic;
 [Serializable]
 public class ItemData
 {
-    public int id;
-    public string name;
-    public string prefabName;
-    public bool isFavoriteFood;
-    public int score;
-    public string description;
-    public string iconImagePath;
+    public int ID;
+    public string Name;
+    public string PrefabName;
+    public bool IsFavoriteFood;
+    public int Score;
+    public string Description;
+    public string IconImagePath;
 }
 
 public class ItemDatas
 {
-    public List<ItemData> foodInfo;
+    public List<ItemData> FoodInfo;
 }

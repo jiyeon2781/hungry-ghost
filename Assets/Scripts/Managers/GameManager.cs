@@ -11,25 +11,19 @@ public class GameManager
 
     public int CurrentScore;
     public int PlayTime;
-    public int MaxScoreRank = 5;
+
+    public GameData GameData = new GameData();
 
     public Action ChangeScore;
 
     private InGameUI _gameUI;
-
-    private string _favoriteFoodAddress = "Assets/Prefabs/Item/FavoriteFood.prefab";
-    private string _hateFoodAddress = "Assets/Prefabs/Item/HateFood.prefab";
-    private string _positionAddress = "Assets/Prefabs/Item/ItemPositions.prefab";
-    private string _pathBgm = "Assets/Sounds/BGM/InGame.wav";
-
-    private GameObject _positions;
 
     public void Initialze()
     {
         _gameUI = Managers.UIManager.ShowUI<InGameUI>();
 
         CurrentScore = 0;
-        PlayTime = 60;
+        PlayTime = GameData.START_PLAY_TIME;
         IsGamePlaying = true;
         IsGamePaused = false;
 
@@ -42,28 +36,26 @@ public class GameManager
 
     void CreateItemPoolAndPosition()
     {
-        Managers.ResourceManager.LoadAsync(_favoriteFoodAddress, false, obj =>
+        Managers.ResourceManager.LoadAsync(GameData.FavoriteFoodAddress, false, obj =>
         {
-            // TODO 추후 데이터 수정
-            Managers.PoolManager.InitFoodPool(obj.gameObject, 5);
-        }, () => Debug.LogError($"[ResourceManager] Failed Loading \"{_favoriteFoodAddress}\" GameObject"));
+            Managers.PoolManager.InitFoodPool(obj.gameObject, GameData.FAVORITE_FOOD_MAX_COUNT);
+        }, () => Debug.LogError($"[ResourceManager] Failed Loading \"{GameData.FavoriteFoodAddress}\" GameObject"));
 
-        Managers.ResourceManager.LoadAsync(_hateFoodAddress, false, obj =>
+        Managers.ResourceManager.LoadAsync(GameData.HateFoodAddress, false, obj =>
         {
-            // TODO 추후 데이터 수정
-            Managers.PoolManager.InitFoodPool(obj.gameObject, 5, Enums.Item.Hate);
+            Managers.PoolManager.InitFoodPool(obj.gameObject, GameData.HATE_FOOD_MAX_COUNT, Enums.Item.Hate);
             CreateItemPosition();
-        }, () => Debug.LogError($"[ResourceManager] Failed Loading \"{_hateFoodAddress}\" GameObject"));
+        }, () => Debug.LogError($"[ResourceManager] Failed Loading \"{GameData.HateFoodAddress}\" GameObject"));
     }
 
     async void CreateItemPosition()
     {
-        _positions = await Managers.ResourceManager.InstantiateInAsync(_positionAddress);
+        await Managers.ResourceManager.InstantiateInAsync(GameData.PositionAddress);
     }
 
     public async void Play()
     {
-        Managers.SoundManager.Play(_pathBgm, SoundManager.SoundType.BGM);
+        Managers.SoundManager.Play(GameData.InGamePathBGM, SoundManager.SoundType.BGM);
 
         await UpdateTime();
         
@@ -99,7 +91,7 @@ public class GameManager
     {
         var prevScore = -1;
 
-        for (int i = 1; i <= MaxScoreRank; i++)
+        for (int i = 1; i <= GameData.SCORE_RANK_MAX_COUNT; i++)
         {
             if (!PlayerPrefs.HasKey(i.ToString()))
             {

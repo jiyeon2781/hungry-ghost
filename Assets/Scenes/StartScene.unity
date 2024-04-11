@@ -220,7 +220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ccd579aca8739d4ebdc312d485f3270, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathBgm: Assets/Sounds/BGM/Lobby.wav
 --- !u!4 &957161089
 Transform:
   m_ObjectHideFlags: 0

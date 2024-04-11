@@ -18,22 +18,22 @@ public class DataManager
     public List<ItemData> LoadItemDatas()
     {
         TextAsset textAsset = Resources.Load<TextAsset>("JsonFile/ItemData");
-        var itemDatas = JsonUtility.FromJson<ItemDatas>(textAsset.text).foodInfo;
+        var itemDatas = JsonUtility.FromJson<ItemDatas>(textAsset.text).FoodInfo;
         return itemDatas;
     }
 
     public ItemData GetItemDataUsingId(int id)
     {
-        return _itemDatas.FirstOrDefault(data => data.id == id);
+        return _itemDatas.FirstOrDefault(data => data.ID == id);
     }
 
     public int GetFavoriteItemDataCount()
     {
-        return _itemDatas.Count(data => data.isFavoriteFood);
+        return _itemDatas.Count(data => data.IsFavoriteFood);
     }
 
     public int GetHateItemDataCount()
     {
-        return _itemDatas.Count(data => !data.isFavoriteFood);
+        return _itemDatas.Count(data => !data.IsFavoriteFood);
     }
 }

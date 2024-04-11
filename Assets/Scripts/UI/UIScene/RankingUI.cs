@@ -13,7 +13,7 @@ public class RankingUI : UIBase
 
     private void SetRankTexts()
     {
-        for (int i = 1; i <= Managers.GameManager.MaxScoreRank; i++)
+        for (int i = 1; i <= Managers.GameManager.GameData.SCORE_RANK_MAX_COUNT; i++)
         {
             if (!PlayerPrefs.HasKey(i.ToString())) break;
             textLists[i-1].SetText(i + ". " + PlayerPrefs.GetInt(i.ToString()));

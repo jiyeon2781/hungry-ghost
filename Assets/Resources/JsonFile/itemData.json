@@ -1,67 +1,67 @@
 {
-  "foodInfo" : [
+  "FoodInfo" : [
     {
-      "id": 1,
-      "name": "햄버거",
-      "prefabName": "Burger",
-      "isFavoriteFood": true,
-      "score": 50,
-      "description": "유령이 제일 좋아하는 햄버거에요.",
-      "iconImagePath": "Assets/Arts/Items/Food/Icon/hamburger.png"
+      "ID": 1,
+      "Name": "햄버거",
+      "PrefabName": "Burger",
+      "IsFavoriteFood": true,
+      "Score": 50,
+      "Description": "유령이 제일 좋아하는 햄버거에요.",
+      "IconImagePath": "Assets/Arts/Items/Food/Icon/hamburger.png"
     },
     {
-      "id": 2,
-      "name": "케이크",
-      "prefabName": "Cake",
-      "isFavoriteFood": true,
-      "score": 30,
-      "description": "유령은 달달한 케이크를 좋아해요.",
-      "iconImagePath": "Assets/Arts/Items/Food/Icon/cake.png"
+      "ID": 2,
+      "Name": "케이크",
+      "PrefabName": "Cake",
+      "IsFavoriteFood": true,
+      "Score": 30,
+      "Description": "유령은 달달한 케이크를 좋아해요.",
+      "IconImagePath": "Assets/Arts/Items/Food/Icon/cake.png"
     },
     {
-      "id": 3,
-      "name": "컵케이크",
-      "prefabName": "Cupcake",
-      "isFavoriteFood": true,
-      "score": 15,
-      "description": "케이크보다 작지만 그래도 컵케이크를 즐겨먹었어요.",
-      "iconImagePath": "Assets/Arts/Items/Food/Icon/cupcake.png"
+      "ID": 3,
+      "Name": "컵케이크",
+      "PrefabName": "Cupcake",
+      "IsFavoriteFood": true,
+      "Score": 15,
+      "Description": "케이크보다 작지만 그래도 컵케이크를 즐겨먹었어요.",
+      "IconImagePath": "Assets/Arts/Items/Food/Icon/cupcake.png"
     },
     {
-      "id": 4,
-      "name": "소다",
-      "prefabName": "Soda",
-      "isFavoriteFood": true,
-      "score": 5,
-      "description": "햄버거와 찰떡궁합인 소다! 탄산음료도 즐겨먹었답니다.",
-      "iconImagePath": "Assets/Arts/Items/Food/Icon/soda.png"
+      "ID": 4,
+      "Name": "소다",
+      "PrefabName": "Soda",
+      "IsFavoriteFood": true,
+      "Score": 5,
+      "Description": "햄버거와 찰떡궁합인 소다! 탄산음료도 즐겨먹었답니다.",
+      "IconImagePath": "Assets/Arts/Items/Food/Icon/soda.png"
     },
     {
-      "id": 5,
-      "name": "브로콜리",
-      "prefabName": "Broccoli",
-      "isFavoriteFood": false,
-      "score": 5,
-      "description": "유령은 브로콜리를 항상 남겼어요.",
-      "iconImagePath": "Assets/Arts/Items/Food/Icon/broccoli.png"
+      "ID": 5,
+      "Name": "브로콜리",
+      "PrefabName": "Broccoli",
+      "IsFavoriteFood": false,
+      "Score": 5,
+      "Description": "유령은 브로콜리를 항상 남겼어요.",
+      "IconImagePath": "Assets/Arts/Items/Food/Icon/broccoli.png"
     },
     {
-      "id": 6,
-      "name": "버섯",
-      "prefabName": "Mushroom",
-      "isFavoriteFood": false,
-      "score": 20,
-      "description": "버섯은 왜 만들어졌는지 유령은 이해할 수 없어요!",
-      "iconImagePath": "Assets/Arts/Items/Food/Icon/mushroom.png"
+      "ID": 6,
+      "Name": "버섯",
+      "PrefabName": "Mushroom",
+      "IsFavoriteFood": false,
+      "Score": 20,
+      "Description": "버섯은 왜 만들어졌는지 유령은 이해할 수 없어요!",
+      "IconImagePath": "Assets/Arts/Items/Food/Icon/mushroom.png"
     },
     {
-      "id": 7,
-      "name": "마늘",
-      "prefabName": "Garlic",
-      "isFavoriteFood": false,
-      "score": 30,
-      "description": "유령은 마늘이 세상에서 다 사라졌으면 좋겠다고 해요.",
-      "iconImagePath": "Assets/Arts/Items/Food/Icon/garlic.png"
+      "ID": 7,
+      "Name": "마늘",
+      "PrefabName": "Garlic",
+      "IsFavoriteFood": false,
+      "Score": 30,
+      "Description": "유령은 마늘이 세상에서 다 사라졌으면 좋겠다고 해요.",
+      "IconImagePath": "Assets/Arts/Items/Food/Icon/garlic.png"
     }
   ]
 }

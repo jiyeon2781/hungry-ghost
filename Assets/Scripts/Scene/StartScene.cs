@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class StartScene : BaseScene
 {
-    [SerializeField] private string pathBgm = "Assets/Sounds/BGM/Lobby.wav";
     protected override async void Init()
     {
         SceneType = Enums.Scene.Start;
@@ -20,6 +19,6 @@ public class StartScene : BaseScene
         await UniTask.WaitUntil(() => Managers.IsInitialized);
 
         Managers.UIManager.ShowUI<StartSceneUI>();
-        Managers.SoundManager.Play(pathBgm, SoundManager.SoundType.BGM);
+        Managers.SoundManager.Play(Managers.GameManager.GameData.LobbyPathBGM, SoundManager.SoundType.BGM);
     }
 }

@@ -59,6 +59,7 @@ public class PoolManager
         }
 
         _poolDic.Add(food.ItemType, new Queue<Food>());
+        _poolDic[food.ItemType].Enqueue(food);
     }
 
     public Food Pop(Transform parent, Enums.Item itemType = Enums.Item.Favorite) // 풀에서 꺼내오기

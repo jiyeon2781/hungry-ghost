@@ -21,14 +21,14 @@ public class HateFood : Food
         _currentItemData = Managers.DataManager.GetItemDataUsingId(rand);
 
         _isUsing = true;
-        _food = await Managers.ResourceManager.InstantiateInAsync(_foodAddress + _currentItemData.prefabName + ".prefab", transform);
+        _food = await Managers.ResourceManager.InstantiateInAsync(_foodAddress + _currentItemData.PrefabName + ".prefab", transform);
         await RotationFood();
     }
 
     public override void InteractionPlayer(GameObject player)
     {
         base.InteractionPlayer(player);
-        Managers.GameManager.CurrentScore -= CurrentItemData.score;
+        Managers.GameManager.CurrentScore -= CurrentItemData.Score;
         Managers.GameManager.ChangeScore();
     }
 }
